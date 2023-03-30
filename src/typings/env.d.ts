@@ -19,10 +19,16 @@ interface ServiceEnvConfigWithProxyPattern extends ServiceEnvConfig {
 	 * - 和后端请求地址的前缀无关
 	 * - 有多个后端请求实例时，需要创建不同的值
 	 */
-	proxyPattern: "/proxy-pattern";
+	proxyPattern: string;
 }
 
 interface ImportMetaEnv {
+	/** 是否使用mock */
+	VITE_USE_MOCK: false;
+	/** 代理配置 */
+	VITE_PROXY: string[][];
+	/** api前辍 */
+	VITE_GLOB_API_URL: string;
 	/** 项目基本地址 */
 	readonly VITE_BASE_URL: string;
 	/** 项目名称 */

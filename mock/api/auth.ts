@@ -1,6 +1,6 @@
 import type { MockMethod } from 'vite-plugin-mock';
 import { userModel } from '../model';
-
+import { mockUrl } from './tool';
 /** 参数错误的状态码 */
 const ERROR_PARAM_CODE = 10000;
 
@@ -9,7 +9,7 @@ const ERROR_PARAM_MSG = '参数校验失败！';
 const apis: MockMethod[] = [
   // 获取验证码
   {
-    url: '/mock/getSmsCode',
+    url: mockUrl('/getSmsCode'),
     method: 'post',
     response: (): Service.MockServiceResult<boolean> => {
       return {
@@ -21,7 +21,7 @@ const apis: MockMethod[] = [
   },
   // 用户+密码 登录
   {
-    url: '/mock/login',
+    url: mockUrl('/login'),
     method: 'post',
     response: (options: Service.MockOption): Service.MockServiceResult<ApiAuth.Token | null> => {
       const { userName = undefined, password = undefined } = options.body;
@@ -55,7 +55,7 @@ const apis: MockMethod[] = [
   },
   // 获取用户信息(请求头携带token, 根据token获取用户信息)
   {
-    url: '/mock/getUserInfo',
+    url: mockUrl('/getUserInfo'),
     method: 'get',
     response: (options: Service.MockOption): Service.MockServiceResult<ApiAuth.UserInfo | null> => {
       // 这里的mock插件得到的字段是authorization, 前端传递的是Authorization字段
@@ -99,7 +99,7 @@ const apis: MockMethod[] = [
     }
   },
   {
-    url: '/mock/updateToken',
+    url: mockUrl('/updateToken'),
     method: 'post',
     response: (options: Service.MockOption): Service.MockServiceResult<ApiAuth.Token | null> => {
       const { refreshToken = '' } = options.body;

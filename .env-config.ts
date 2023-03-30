@@ -2,7 +2,7 @@
 type ServiceEnv = Record<ServiceEnvType, ServiceEnvConfig>;
 
 /** 不同请求服务的环境配置 */
-const serviceEnv: ServiceEnv = {
+const serviceEnv: any = {
   dev: {
     url: 'http://localhost:8080'
   },
@@ -20,7 +20,7 @@ const serviceEnv: ServiceEnv = {
  */
 export function getServiceEnvConfig(env: ImportMetaEnv): ServiceEnvConfigWithProxyPattern {
   const { VITE_SERVICE_ENV = 'dev' } = env;
-
+  console.info("env", env, typeof(env));
   const config = serviceEnv[VITE_SERVICE_ENV];
 
   return {

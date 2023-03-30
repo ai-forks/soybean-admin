@@ -1,9 +1,10 @@
 import { mock } from 'mockjs';
 import type { MockMethod } from 'vite-plugin-mock';
+import { mockUrl } from './tool';
 
 const apis: MockMethod[] = [
   {
-    url: '/mock/getAllUserList',
+    url: mockUrl('/getAllUserList'),
     method: 'post',
     response: (): Service.MockServiceResult<ApiUserManagement.User[]> => {
       const data = mock({
