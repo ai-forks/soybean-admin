@@ -1,3 +1,3 @@
-import VerticalMenu from './vertical-menu.vue';
+import VerticalMenu from "./vertical-menu.vue";
 
 export { VerticalMenu };

@@ -1,5 +1,8 @@
 module.exports = {
-  extends: ['soybeanjs/vue'],
+  extends: [
+    'eslint-config-alloy', //
+    //'soybeanjs/vue'
+  ],
   overrides: [
     {
       files: ['./scripts/*.ts'],
@@ -18,6 +21,9 @@ module.exports = {
     'import/core-modules': ['uno.css', '~icons/*', 'virtual:svg-icons-register']
   },
   rules: {
+    'no-param-reassign': 0,
+    'max-nested-callbacks': 1,
+    'no-control-regex': 0,
     'import/order': [
       'error',
       {

@@ -1,22 +1,22 @@
 <template>
-  <hover-container
-    tooltip-content="github"
-    class="w-40px h-full"
-    :inverted="theme.header.inverted"
-    @click="handleClickLink"
-  >
-    <icon-mdi-github class="text-20px" />
-  </hover-container>
+	<hover-container
+		tooltip-content="github"
+		class="w-40px h-full"
+		:inverted="theme.header.inverted"
+		@click="handleClickLink"
+	>
+		<icon-mdi-github class="text-20px" />
+	</hover-container>
 </template>
 
 <script lang="ts" setup>
-import { useThemeStore } from '@/store';
+import { useThemeStore } from "@/store";
 
-defineOptions({ name: 'GithubSite' });
+defineOptions({ name: "GithubSite" });
 
 const theme = useThemeStore();
 function handleClickLink() {
-  window.open('https://github.com/honghuangdc/soybean-admin', '_blank');
+	window.open("https://github.com/honghuangdc/soybean-admin", "_blank");
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div>路由管理</div>
+	<div>路由管理</div>
 </template>
 
 <script setup lang="ts"></script>
