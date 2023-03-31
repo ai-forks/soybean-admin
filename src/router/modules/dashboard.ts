@@ -8,7 +8,17 @@ const dashboard: AuthRoute.Route = {
 			path: "/dashboard/analysis",
 			component: "self",
 			meta: {
-				title: "分析页",
+				title: "写作",
+				requiresAuth: true,
+				icon: "icon-park-outline:analysis",
+			},
+		},
+		{
+			name: "dashboard_analysis",
+			path: "/dashboard/analysis",
+			component: "self",
+			meta: {
+				title: "文生图",
 				requiresAuth: true,
 				icon: "icon-park-outline:analysis",
 			},
@@ -18,7 +28,7 @@ const dashboard: AuthRoute.Route = {
 			path: "/dashboard/workbench",
 			component: "self",
 			meta: {
-				title: "工作台",
+				title: "图生图",
 				requiresAuth: true,
 				icon: "icon-park-outline:workbench",
 			},

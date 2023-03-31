@@ -3,7 +3,7 @@ import type { LocaleMessages } from "vue-i18n";
 const locale: LocaleMessages<I18nType.Schema> = {
 	message: {
 		system: {
-			title: "Soybean管理系统",
+			title: "AI助手",
 		},
 		routes: {
 			dashboard: {
