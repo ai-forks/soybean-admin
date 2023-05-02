@@ -8,11 +8,11 @@
 </template>
 
 <script lang="ts" setup>
-import type { DropdownOption } from 'naive-ui';
-import { useAuthStore, useThemeStore } from '@/store';
-import { useIconRender } from '@/composables';
+import type { DropdownOption } from "naive-ui";
+import { useAuthStore, useThemeStore } from "@/store";
+import { useIconRender } from "@/composables";
 
-defineOptions({ name: 'UserAvatar' });
+defineOptions({ name: "UserAvatar" });
 
 const auth = useAuthStore();
 const theme = useThemeStore();
@@ -20,34 +20,34 @@ const { iconRender } = useIconRender();
 
 const options: DropdownOption[] = [
   {
-    label: '用户中心',
-    key: 'user-center',
-    icon: iconRender({ icon: 'carbon:user-avatar' })
+    label: "用户中心",
+    key: "user-center",
+    icon: iconRender({ icon: "carbon:user-avatar" }),
   },
   {
-    type: 'divider',
-    key: 'divider'
+    type: "divider",
+    key: "divider",
   },
   {
-    label: '退出登录',
-    key: 'logout',
-    icon: iconRender({ icon: 'carbon:logout' })
-  }
+    label: "退出登录",
+    key: "logout",
+    icon: iconRender({ icon: "carbon:logout" }),
+  },
 ];
 
-type DropdownKey = 'user-center' | 'logout';
+type DropdownKey = "user-center" | "logout";
 
 function handleDropdown(optionKey: string) {
   const key = optionKey as DropdownKey;
-  if (key === 'logout') {
+  if (key === "logout") {
     window.$dialog?.info({
-      title: '提示',
-      content: '您确定要退出登录吗？',
-      positiveText: '确定',
-      negativeText: '取消',
+      title: "提示",
+      content: "您确定要退出登录吗？",
+      positiveText: "确定",
+      negativeText: "取消",
       onPositiveClick: () => {
         auth.resetAuthStore();
-      }
+      },
     });
   }
 }

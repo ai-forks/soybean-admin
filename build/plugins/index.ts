@@ -18,7 +18,7 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | Plugin
   const plugins = [vue(), vueJsx(), ...unplugin(viteEnv), unocss(), mock, progress(), pageRoute()];
 
   if (viteEnv.VITE_VISUALIZER === 'Y') {
-    plugins.push(visualizer as PluginOption);
+    plugins.push(visualizer as any as PluginOption);
   }
   if (viteEnv.VITE_COMPRESS === 'Y') {
     plugins.push(compress(viteEnv));

@@ -27,11 +27,11 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref, toRefs } from 'vue';
-import type { FormInst, FormRules } from 'naive-ui';
-import { useRouterPush } from '@/composables';
-import { useSmsCode } from '@/hooks';
-import { formRules, getConfirmPwdRule } from '@/utils';
+import { reactive, ref, toRefs } from "vue";
+import type { FormInst, FormRules } from "naive-ui";
+import { useRouterPush } from "@/composables";
+import { useSmsCode } from "@/hooks";
+import { formRules, getConfirmPwdRule } from "@/utils";
 
 const { toLoginModule } = useRouterPush();
 const { label, isCounting, loading: smsLoading, start } = useSmsCode();
@@ -39,17 +39,17 @@ const { label, isCounting, loading: smsLoading, start } = useSmsCode();
 const formRef = ref<HTMLElement & FormInst>();
 
 const model = reactive({
-  phone: '',
-  code: '',
-  pwd: '',
-  confirmPwd: ''
+  phone: "",
+  code: "",
+  pwd: "",
+  confirmPwd: "",
 });
 
 const rules: FormRules = {
   phone: formRules.phone,
   code: formRules.code,
   pwd: formRules.pwd,
-  confirmPwd: getConfirmPwdRule(toRefs(model).pwd)
+  confirmPwd: getConfirmPwdRule(toRefs(model).pwd),
 };
 
 const agreement = ref(false);
@@ -60,7 +60,7 @@ function handleSmsCode() {
 
 async function handleSubmit() {
   await formRef.value?.validate();
-  window.$message?.success('验证成功!');
+  window.$message?.success("验证成功!");
 }
 </script>
 

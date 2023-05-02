@@ -1,4 +1,4 @@
-import { decrypto, encrypto } from '../crypto';
+import { decrypto, encrypto } from "../crypto";
 interface StorageData<T> {
   value: T;
   expire: number | null;
@@ -11,7 +11,7 @@ function createLocalStorage<T extends StorageInterface.Local = StorageInterface.
   function set<K extends keyof T>(key: K, value: T[K], expire: number | null = DEFAULT_CACHE_TIME) {
     const storageData: StorageData<T[K]> = {
       value,
-      expire: expire !== null ? new Date().getTime() + expire * 1000 : null
+      expire: expire !== null ? new Date().getTime() + expire * 1000 : null,
     };
     const json = encrypto(storageData);
     window.localStorage.setItem(key as string, json);
@@ -50,7 +50,7 @@ function createLocalStorage<T extends StorageInterface.Local = StorageInterface.
     set,
     get,
     remove,
-    clear
+    clear,
   };
 }
 

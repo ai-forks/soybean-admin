@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({ name: 'DashboardWorkbenchMainTechnologyCard' });
+defineOptions({ name: "DashboardWorkbenchMainTechnologyCard" });
 
 interface Props {
   /** 技术名称 */
@@ -35,7 +35,7 @@ interface Props {
 const props = defineProps<Props>();
 
 function handleOpenSite() {
-  window.open(props.site, '_blank');
+  window.open(props.site, "_blank");
 }
 </script>
 

@@ -31,16 +31,16 @@
 </template>
 
 <script setup lang="tsx">
-import { reactive, ref } from 'vue';
-import type { Ref } from 'vue';
-import { NButton, NPopconfirm, NSpace, NTag } from 'naive-ui';
-import type { DataTableColumns, PaginationProps } from 'naive-ui';
-import { genderLabels, userStatusLabels } from '@/constants';
-import { fetchUserList } from '@/service';
-import { useBoolean, useLoading } from '@/hooks';
-import TableActionModal from './components/table-action-modal.vue';
-import type { ModalType } from './components/table-action-modal.vue';
-import ColumnSetting from './components/column-setting.vue';
+import { reactive, ref } from "vue";
+import type { Ref } from "vue";
+import { NButton, NPopconfirm, NSpace, NTag } from "naive-ui";
+import type { DataTableColumns, PaginationProps } from "naive-ui";
+import { genderLabels, userStatusLabels } from "@/constants";
+import { fetchUserList } from "@/service";
+import { useBoolean, useLoading } from "@/hooks";
+import TableActionModal from "./components/table-action-modal.vue";
+import type { ModalType } from "./components/table-action-modal.vue";
+import ColumnSetting from "./components/column-setting.vue";
 
 const { loading, startLoading, endLoading } = useLoading(false);
 const { bool: visible, setTrue: openModal } = useBoolean();
@@ -63,92 +63,92 @@ async function getTableData() {
 
 const columns: Ref<DataTableColumns<UserManagement.User>> = ref([
   {
-    type: 'selection',
-    align: 'center'
+    type: "selection",
+    align: "center",
   },
   {
-    key: 'index',
-    title: '序号',
-    align: 'center'
+    key: "index",
+    title: "序号",
+    align: "center",
   },
   {
-    key: 'userName',
-    title: '用户名',
-    align: 'center'
+    key: "userName",
+    title: "用户名",
+    align: "center",
   },
   {
-    key: 'age',
-    title: '用户年龄',
-    align: 'center'
+    key: "age",
+    title: "用户年龄",
+    align: "center",
   },
   {
-    key: 'gender',
-    title: '性别',
-    align: 'center',
-    render: row => {
+    key: "gender",
+    title: "性别",
+    align: "center",
+    render: (row) => {
       if (row.gender) {
         const tagTypes: Record<UserManagement.GenderKey, NaiveUI.ThemeColor> = {
-          '0': 'success',
-          '1': 'warning'
+          "0": "success",
+          "1": "warning",
         };
 
         return <NTag type={tagTypes[row.gender]}>{genderLabels[row.gender]}</NTag>;
       }
 
       return <span></span>;
-    }
+    },
   },
   {
-    key: 'phone',
-    title: '手机号码',
-    align: 'center'
+    key: "phone",
+    title: "手机号码",
+    align: "center",
   },
   {
-    key: 'email',
-    title: '邮箱',
-    align: 'center'
+    key: "email",
+    title: "邮箱",
+    align: "center",
   },
   {
-    key: 'userStatus',
-    title: '状态',
-    align: 'center',
-    render: row => {
+    key: "userStatus",
+    title: "状态",
+    align: "center",
+    render: (row) => {
       if (row.userStatus) {
         const tagTypes: Record<UserManagement.UserStatusKey, NaiveUI.ThemeColor> = {
-          '1': 'success',
-          '2': 'error',
-          '3': 'warning',
-          '4': 'default'
+          "1": "success",
+          "2": "error",
+          "3": "warning",
+          "4": "default",
         };
 
         return <NTag type={tagTypes[row.userStatus]}>{userStatusLabels[row.userStatus]}</NTag>;
       }
       return <span></span>;
-    }
+    },
   },
   {
-    key: 'actions',
-    title: '操作',
-    align: 'center',
-    render: row => {
+    key: "actions",
+    title: "操作",
+    align: "center",
+    render: (row) => {
       return (
-        <NSpace justify={'center'}>
-          <NButton size={'small'} onClick={() => handleEditTable(row.id)}>
+        <NSpace justify={"center"}>
+          <NButton size={"small"} onClick={() => handleEditTable(row.id)}>
             编辑
           </NButton>
           <NPopconfirm onPositiveClick={() => handleDeleteTable(row.id)}>
             {{
-              default: () => '确认删除',
-              trigger: () => <NButton size={'small'}>删除</NButton>
+              default: () => "确认删除",
+              trigger: () => <NButton size={"small"}>删除</NButton>,
             }}
           </NPopconfirm>
         </NSpace>
       );
-    }
-  }
+    },
+  },
 ]) as Ref<DataTableColumns<UserManagement.User>>;
 
-const modalType = ref<ModalType>('add');
+const modalType = ref<ModalType>("add");
 
 function setModalType(type: ModalType) {
   modalType.value = type;
@@ -162,15 +162,15 @@ function setEditData(data: UserManagement.User | null) {
 
 function handleAddTable() {
   openModal();
-  setModalType('add');
+  setModalType("add");
 }
 
 function handleEditTable(rowId: string) {
-  const findItem = tableData.value.find(item => item.id === rowId);
+  const findItem = tableData.value.find((item) => item.id === rowId);
   if (findItem) {
     setEditData(findItem);
   }
-  setModalType('edit');
+  setModalType("edit");
   openModal();
 }
 
@@ -189,7 +189,7 @@ const pagination: PaginationProps = reactive({
   onUpdatePageSize: (pageSize: number) => {
     pagination.pageSize = pageSize;
     pagination.page = 1;
-  }
+  },
 });
 
 function init() {

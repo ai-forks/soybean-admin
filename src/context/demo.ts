@@ -1,6 +1,6 @@
-import { ref } from 'vue';
-import type { Ref } from 'vue';
-import { useContext } from '@/hooks';
+import { ref } from "vue";
+import type { Ref } from "vue";
+import { useContext } from "@/hooks";
 
 interface DemoContext {
   counts: Ref<number>;
@@ -18,7 +18,7 @@ export function useDemoContext() {
 
   const demoContext: DemoContext = {
     counts,
-    setCounts
+    setCounts,
   };
 
   function useProvide() {
@@ -27,7 +27,7 @@ export function useDemoContext() {
 
   return {
     useProvide,
-    useInject: useDemoInject
+    useInject: useDemoInject,
   };
 }
 

@@ -1,132 +1,26 @@
 module.exports = {
-  extends: ['soybeanjs/vue'],
-  overrides: [
-    {
-      files: ['./scripts/*.ts'],
-      rules: {
-        'no-unused-expressions': 'off'
-      }
-    },
-    {
-      files: ['*.vue'],
-      rules: {
-        'no-undef': 'off' // use tsc to check the ts code of the vue
-      }
-    }
-  ],
-  settings: {
-    'import/core-modules': ['uno.css', '~icons/*', 'virtual:svg-icons-register']
+  extends: ["eslint-config-alloy"],
+  globals: {
+    // 这里填入你的项目需要的全局变量
+    // 这里值为 false 表示这个全局变量不允许被重新赋值，比如：
+    //
+    // jQuery: false,
+    // $: false
   },
   rules: {
-    'import/order': [
-      'error',
-      {
-        'newlines-between': 'never',
-        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-        pathGroups: [
-          {
-            pattern: 'vue',
-            group: 'external',
-            position: 'before'
-          },
-          {
-            pattern: 'vue-router',
-            group: 'external',
-            position: 'before'
-          },
-          {
-            pattern: 'pinia',
-            group: 'external',
-            position: 'before'
-          },
-          {
-            pattern: 'naive-ui',
-            group: 'external',
-            position: 'before'
-          },
-          {
-            pattern: '@/constants',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/config',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/settings',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/plugins',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/layouts',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/views',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/components',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/router',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/service',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/store',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/context',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/composables',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/hooks',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/utils',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/assets',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/**',
-            group: 'internal',
-            position: 'before'
-          }
-        ],
-        pathGroupsExcludedImportTypes: ['vue', 'vue-router', 'pinia', 'naive-ui']
-      }
-    ]
-  }
+    // 这里填入你的项目需要的个性化配置，比如：
+    //
+    // // @fixable 一个缩进必须用两个空格替代
+    // "indent": [
+    //     "error",
+    //     2,
+    //     {
+    //         SwitchCase: 1,
+    //         flatTernaryExpressions: true
+    //     }
+    // ]
+    "no-param-reassign": 0,
+    "max-nested-callbacks": 1,
+    "no-control-regex": 0,
+  },
 };

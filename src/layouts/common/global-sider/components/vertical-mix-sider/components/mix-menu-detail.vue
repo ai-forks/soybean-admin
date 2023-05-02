@@ -16,11 +16,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { VNodeChild } from 'vue';
-import { useBoolean } from '@/hooks';
+import { computed } from "vue";
+import type { VNodeChild } from "vue";
+import { useBoolean } from "@/hooks";
 
-defineOptions({ name: 'MixMenuDetail' });
+defineOptions({ name: "MixMenuDetail" });
 
 interface Props {
   /** 路由名称 */
@@ -37,7 +37,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   icon: undefined,
-  isMini: false
+  isMini: false,
 });
 
 const { bool: isHover, setTrue, setFalse } = useBoolean();

@@ -4,14 +4,14 @@
     "module": "ESNext",
     "target": "ESNext",
     "lib": ["DOM", "ESNext"],
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
+    "noUnusedLocals": false,
+    "strictNullChecks": false,
     "forceConsistentCasingInFileNames": true,
     "paths": {
       "~/*": ["./*"],
@@ -25,5 +25,6 @@
       "unplugin-vue-define-options/macros-global"
     ]
   },
+  //"include": ["src/**/*.ts", "src/**/*.js", "src/**/*.vue", "src/**/*.tsx", "src/**/*.jsx"],
   "exclude": ["node_modules", "dist"]
 }

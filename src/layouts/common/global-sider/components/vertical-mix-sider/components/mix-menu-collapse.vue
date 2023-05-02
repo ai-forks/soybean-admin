@@ -6,9 +6,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useAppStore } from '@/store';
+import { useAppStore } from "@/store";
 
-defineOptions({ name: 'MixMenuCollapse' });
+defineOptions({ name: "MixMenuCollapse" });
 
 const app = useAppStore();
 </script>

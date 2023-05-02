@@ -1,5 +1,5 @@
-import { useEventListener } from '@vueuse/core';
-import { useTabStore, useThemeStore } from '@/store';
+import { useEventListener } from "@vueuse/core";
+import { useTabStore, useThemeStore } from "@/store";
 
 /** 全局事件 */
 export function useGlobalEvents() {
@@ -7,7 +7,7 @@ export function useGlobalEvents() {
   const tab = useTabStore();
 
   /** 页面离开时缓存多页签数据 */
-  useEventListener(window, 'beforeunload', () => {
+  useEventListener(window, "beforeunload", () => {
     theme.cacheThemeSettings();
     tab.cacheTabRoutes();
   });

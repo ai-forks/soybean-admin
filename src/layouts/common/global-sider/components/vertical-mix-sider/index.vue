@@ -21,15 +21,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import { useAppStore, useRouteStore, useThemeStore } from '@/store';
-import { useRouterPush } from '@/composables';
-import { useBoolean } from '@/hooks';
-import { GlobalLogo } from '@/layouts/common';
-import { MixMenuCollapse, MixMenuDetail, MixMenuDrawer } from './components';
+import { computed, ref, watch } from "vue";
+import { useRoute } from "vue-router";
+import { useAppStore, useRouteStore, useThemeStore } from "@/store";
+import { useRouterPush } from "@/composables";
+import { useBoolean } from "@/hooks";
+import { GlobalLogo } from "@/layouts/common";
+import { MixMenuCollapse, MixMenuDetail, MixMenuDrawer } from "./components";
 
-defineOptions({ name: 'VerticalMixSider' });
+defineOptions({ name: "VerticalMixSider" });
 
 const route = useRoute();
 const app = useAppStore();
@@ -38,13 +38,13 @@ const routeStore = useRouteStore();
 const { routerPush } = useRouterPush();
 const { bool: drawerVisible, setTrue: openDrawer, setFalse: hideDrawer } = useBoolean();
 
-const activeParentRouteName = ref('');
+const activeParentRouteName = ref("");
 function setActiveParentRouteName(routeName: string) {
   activeParentRouteName.value = routeName;
 }
 
 const firstDegreeMenus = computed(() =>
-  routeStore.menus.map(item => {
+  routeStore.menus.map((item) => {
     const { routeName, label } = item;
     const icon = item?.icon;
     const hasChildren = Boolean(item.children && item.children.length);
@@ -53,13 +53,13 @@ const firstDegreeMenus = computed(() =>
       routeName,
       label,
       icon,
-      hasChildren
+      hasChildren,
     };
-  })
+  }),
 );
 
 function getActiveParentRouteName() {
-  firstDegreeMenus.value.some(item => {
+  firstDegreeMenus.value.some((item) => {
     const routeName = (route.meta?.activeMenu ? route.meta.activeMenu : route.name) as string;
     const flag = routeName?.includes(item.routeName);
     if (flag) {
@@ -85,7 +85,7 @@ function resetFirstDegreeMenus() {
 
 const activeChildMenus = computed(() => {
   const menus: App.GlobalMenuOption[] = [];
-  routeStore.menus.some(item => {
+  routeStore.menus.some((item) => {
     const flag = item.routeName === activeParentRouteName.value && Boolean(item.children?.length);
     if (flag) {
       menus.push(...(item.children || []));
@@ -100,7 +100,7 @@ watch(
   () => {
     getActiveParentRouteName();
   },
-  { immediate: true }
+  { immediate: true },
 );
 </script>
 

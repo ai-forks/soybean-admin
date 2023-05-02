@@ -4,7 +4,7 @@
  * - test: 后台测试环境
  * - prod: 后台生产环境
  */
-type ServiceEnvType = 'dev' | 'test' | 'prod';
+type ServiceEnvType = "dev" | "test" | "prod";
 
 /** 后台服务的环境配置 */
 interface ServiceEnvConfig {
@@ -19,7 +19,7 @@ interface ServiceEnvConfigWithProxyPattern extends ServiceEnvConfig {
    * - 和后端请求地址的前缀无关
    * - 有多个后端请求实例时，需要创建不同的值
    */
-  proxyPattern: '/proxy-pattern';
+  proxyPattern: "/proxy-pattern";
 }
 
 interface ImportMetaEnv {
@@ -36,7 +36,7 @@ interface ImportMetaEnv {
    * - static - 前端声明的静态
    * - dynamic - 后端返回的动态
    */
-  readonly VITE_AUTH_ROUTE_MODE: 'static' | 'dynamic';
+  readonly VITE_AUTH_ROUTE_MODE: "static" | "dynamic";
   /** 路由首页的路径 */
   readonly VITE_ROUTE_HOME_PATH: AuthRoute.RoutePath;
   /** iconify图标作为组件的前缀 */
@@ -50,19 +50,19 @@ interface ImportMetaEnv {
   /** 后端服务的环境类型 */
   readonly VITE_SERVICE_ENV?: ServiceEnvType;
   /** 开启请求代理 */
-  readonly VITE_HTTP_PROXY?: 'Y' | 'N';
+  readonly VITE_HTTP_PROXY?: "Y" | "N";
   /** 是否开启打包文件大小结果分析 */
-  readonly VITE_VISUALIZER?: 'Y' | 'N';
+  readonly VITE_VISUALIZER?: "Y" | "N";
   /** 是否开启打包压缩 */
-  readonly VITE_COMPRESS?: 'Y' | 'N';
+  readonly VITE_COMPRESS?: "Y" | "N";
   /** 压缩算法类型 */
-  readonly VITE_COMPRESS_TYPE?: 'gzip' | 'brotliCompress' | 'deflate' | 'deflateRaw';
+  readonly VITE_COMPRESS_TYPE?: "gzip" | "brotliCompress" | "deflate" | "deflateRaw";
   /** 是否应用pwa */
-  readonly VITE_PWA?: 'Y' | 'N';
+  readonly VITE_PWA?: "Y" | "N";
   /** hash路由模式 */
-  readonly VITE_HASH_ROUTE?: 'Y' | 'N';
+  readonly VITE_HASH_ROUTE?: "Y" | "N";
   /** 是否是部署的vercel */
-  readonly VITE_VERCEL?: 'Y' | 'N';
+  readonly VITE_VERCEL?: "Y" | "N";
 }
 
 interface ImportMeta {

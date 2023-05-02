@@ -10,14 +10,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import { useElementBounding } from '@vueuse/core';
-import { useTabStore, useThemeStore } from '@/store';
-import { useDeviceInfo } from '@/composables';
-import { ReloadButton, TabDetail } from './components';
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
+import { useElementBounding } from "@vueuse/core";
+import { useTabStore, useThemeStore } from "@/store";
+import { useDeviceInfo } from "@/composables";
+import { ReloadButton, TabDetail } from "./components";
 
-defineOptions({ name: 'GlobalTab' });
+defineOptions({ name: "GlobalTab" });
 
 const route = useRoute();
 const theme = useThemeStore();
@@ -51,7 +51,7 @@ watch(
   () => {
     tab.addTab(route);
     tab.setActiveTab(route.fullPath);
-  }
+  },
 );
 
 // 初始化

@@ -15,13 +15,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-import type { MenuOption } from 'naive-ui';
-import { useRouteStore, useThemeStore } from '@/store';
-import { useRouterPush } from '@/composables';
+import { computed } from "vue";
+import { useRoute } from "vue-router";
+import type { MenuOption } from "naive-ui";
+import { useRouteStore, useThemeStore } from "@/store";
+import { useRouterPush } from "@/composables";
 
-defineOptions({ name: 'HeaderMenu' });
+defineOptions({ name: "HeaderMenu" });
 
 const route = useRoute();
 const routeStore = useRouteStore();

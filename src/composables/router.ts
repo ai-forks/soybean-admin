@@ -1,6 +1,6 @@
-import { useRouter } from 'vue-router';
-import type { RouteLocationRaw } from 'vue-router';
-import { router as globalRouter, routeName } from '@/router';
+import { useRouter } from "vue-router";
+import type { RouteLocationRaw } from "vue-router";
+import { router as globalRouter, routeName } from "@/router";
 
 /**
  * 路由跳转
@@ -18,7 +18,7 @@ export function useRouterPush(inSetup = true) {
   function routerPush(to: RouteLocationRaw, newTab = false) {
     if (newTab) {
       const routerData = router.resolve(to);
-      window.open(routerData.href, '_blank');
+      window.open(routerData.href, "_blank");
       return Promise.resolve();
     }
     return router.push(to);
@@ -34,7 +34,7 @@ export function useRouterPush(inSetup = true) {
    * @param newTab - 在新的浏览器标签打开
    */
   function toHome(newTab = false) {
-    routerPush({ name: routeName('root') }, newTab);
+    routerPush({ name: routeName("root") }, newTab);
   }
 
   /**
@@ -43,10 +43,10 @@ export function useRouterPush(inSetup = true) {
    * @param redirectUrl - 重定向地址(登录成功后跳转的地址),默认undefined表示取当前地址为重定向地址
    */
   function toLogin(loginModule?: UnionKey.LoginModule, redirectUrl?: string) {
-    const module: UnionKey.LoginModule = loginModule || 'pwd-login';
+    const module: UnionKey.LoginModule = loginModule || "pwd-login";
     const routeLocation: RouteLocationRaw = {
-      name: routeName('login'),
-      params: { module }
+      name: routeName("login"),
+      params: { module },
     };
     const redirect = redirectUrl || route.value.fullPath;
     Object.assign(routeLocation, { query: { redirect } });
@@ -59,7 +59,7 @@ export function useRouterPush(inSetup = true) {
    */
   function toLoginModule(module: UnionKey.LoginModule) {
     const { query } = route.value;
-    routerPush({ name: routeName('login'), params: { module }, query });
+    routerPush({ name: routeName("login"), params: { module }, query });
   }
 
   /**
@@ -80,6 +80,6 @@ export function useRouterPush(inSetup = true) {
     toHome,
     toLogin,
     toLoginModule,
-    toLoginRedirect
+    toLoginRedirect,
   };
 }

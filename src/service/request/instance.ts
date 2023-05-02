@@ -1,15 +1,15 @@
-import axios from 'axios';
-import type { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
-import { REFRESH_TOKEN_CODE } from '@/config';
+import axios from "axios";
+import type { AxiosError, AxiosInstance, AxiosRequestConfig } from "axios";
+import { REFRESH_TOKEN_CODE } from "@/config";
 import {
   localStg,
   handleAxiosError,
   handleBackendError,
   handleResponseError,
   handleServiceResult,
-  transformRequestData
-} from '@/utils';
-import { handleRefreshToken } from './helpers';
+  transformRequestData,
+} from "@/utils";
+import { handleRefreshToken } from "./helpers";
 
 /**
  * 封装axios请求类
@@ -28,11 +28,11 @@ export default class CustomAxiosInstance {
   constructor(
     axiosConfig: AxiosRequestConfig,
     backendConfig: Service.BackendResultConfig = {
-      codeKey: 'code',
-      dataKey: 'data',
-      msgKey: 'message',
-      successCode: 200
-    }
+      codeKey: "code",
+      dataKey: "data",
+      msgKey: "message",
+      successCode: 200,
+    },
   ) {
     this.backendConfig = backendConfig;
     this.instance = axios.create(axiosConfig);
@@ -42,24 +42,24 @@ export default class CustomAxiosInstance {
   /** 设置请求拦截器 */
   setInterceptor() {
     this.instance.interceptors.request.use(
-      async config => {
+      async (config) => {
         const handleConfig = { ...config };
         if (handleConfig.headers) {
           // 数据转换
-          const contentType = handleConfig.headers['Content-Type'] as UnionKey.ContentType;
+          const contentType = handleConfig.headers["Content-Type"] as UnionKey.ContentType;
           handleConfig.data = await transformRequestData(handleConfig.data, contentType);
           // 设置token
-          handleConfig.headers.Authorization = localStg.get('token') || '';
+          handleConfig.headers.Authorization = localStg.get("token") || "";
         }
         return handleConfig;
       },
       (axiosError: AxiosError) => {
         const error = handleAxiosError(axiosError);
         return handleServiceResult(error, null);
-      }
+      },
     );
     this.instance.interceptors.response.use(
-      async response => {
+      async (response) => {
         const { status } = response;
         if (status === 200 || status < 300 || status === 304) {
           const backend = response.data;
@@ -86,7 +86,7 @@ export default class CustomAxiosInstance {
       (axiosError: AxiosError) => {
         const error = handleAxiosError(axiosError);
         return handleServiceResult(error, null);
-      }
+      },
     );
   }
 }

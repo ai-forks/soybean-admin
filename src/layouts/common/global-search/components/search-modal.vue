@@ -29,15 +29,15 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, ref, shallowRef, watch } from 'vue';
-import { useRouter } from 'vue-router';
-import { onKeyStroke, useDebounceFn } from '@vueuse/core';
-import { useRouteStore } from '@/store';
-import { useBasicLayout } from '@/composables';
-import SearchResult from './search-result.vue';
-import SearchFooter from './search-footer.vue';
+import { computed, nextTick, ref, shallowRef, watch } from "vue";
+import { useRouter } from "vue-router";
+import { onKeyStroke, useDebounceFn } from "@vueuse/core";
+import { useRouteStore } from "@/store";
+import { useBasicLayout } from "@/composables";
+import SearchResult from "./search-result.vue";
+import SearchFooter from "./search-footer.vue";
 
-defineOptions({ name: 'SearchModal' });
+defineOptions({ name: "SearchModal" });
 
 interface Props {
   /** 弹窗显隐 */
@@ -47,7 +47,7 @@ interface Props {
 const props = defineProps<Props>();
 
 interface Emits {
-  (e: 'update:value', val: boolean): void;
+  (e: "update:value", val: boolean): void;
 }
 
 const emit = defineEmits<Emits>();
@@ -56,8 +56,8 @@ const { isMobile } = useBasicLayout();
 const router = useRouter();
 const routeStore = useRouteStore();
 
-const keyword = ref('');
-const activePath = ref('');
+const keyword = ref("");
+const activePath = ref("");
 const resultOptions = shallowRef<AuthRoute.Route[]>([]);
 const inputRef = ref<HTMLInputElement>();
 
@@ -68,11 +68,11 @@ const show = computed({
     return props.value;
   },
   set(val: boolean) {
-    emit('update:value', val);
-  }
+    emit("update:value", val);
+  },
 });
 
-watch(show, async val => {
+watch(show, async (val) => {
   if (val) {
     /** 自动聚焦 */
     await nextTick();
@@ -83,12 +83,12 @@ watch(show, async val => {
 /** 查询 */
 function search() {
   resultOptions.value = routeStore.searchMenus.filter(
-    menu => keyword.value && menu.meta?.title.toLocaleLowerCase().includes(keyword.value.toLocaleLowerCase().trim())
+    (menu) => keyword.value && menu.meta?.title.toLocaleLowerCase().includes(keyword.value.toLocaleLowerCase().trim()),
   );
   if (resultOptions.value?.length > 0) {
     activePath.value = resultOptions.value[0].path;
   } else {
-    activePath.value = '';
+    activePath.value = "";
   }
 }
 
@@ -97,7 +97,7 @@ function handleClose() {
   /** 延时处理防止用户看到某些操作 */
   setTimeout(() => {
     resultOptions.value = [];
-    keyword.value = '';
+    keyword.value = "";
   }, 200);
 }
 
@@ -105,7 +105,7 @@ function handleClose() {
 function handleUp() {
   const { length } = resultOptions.value;
   if (length === 0) return;
-  const index = resultOptions.value.findIndex(item => item.path === activePath.value);
+  const index = resultOptions.value.findIndex((item) => item.path === activePath.value);
   if (index === 0) {
     activePath.value = resultOptions.value[length - 1].path;
   } else {
@@ -117,7 +117,7 @@ function handleUp() {
 function handleDown() {
   const { length } = resultOptions.value;
   if (length === 0) return;
-  const index = resultOptions.value.findIndex(item => item.path === activePath.value);
+  const index = resultOptions.value.findIndex((item) => item.path === activePath.value);
   if (index + 1 === length) {
     activePath.value = resultOptions.value[0].path;
   } else {
@@ -128,20 +128,20 @@ function handleDown() {
 /** key enter */
 function handleEnter() {
   const { length } = resultOptions.value;
-  if (length === 0 || activePath.value === '') return;
-  const routeItem = resultOptions.value.find(item => item.path === activePath.value);
+  if (length === 0 || activePath.value === "") return;
+  const routeItem = resultOptions.value.find((item) => item.path === activePath.value);
   if (routeItem?.meta?.href) {
-    window.open(activePath.value, '__blank');
+    window.open(activePath.value, "__blank");
   } else {
     router.push(activePath.value);
     handleClose();
   }
 }
 
-onKeyStroke('Escape', handleClose);
-onKeyStroke('Enter', handleEnter);
-onKeyStroke('ArrowUp', handleUp);
-onKeyStroke('ArrowDown', handleDown);
+onKeyStroke("Escape", handleClose);
+onKeyStroke("Enter", handleEnter);
+onKeyStroke("ArrowUp", handleUp);
+onKeyStroke("ArrowDown", handleDown);
 </script>
 
 <style lang="scss" scoped></style>

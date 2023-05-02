@@ -1,12 +1,12 @@
-import { unref, nextTick } from 'vue';
-import { defineStore } from 'pinia';
-import { router } from '@/router';
-import { fetchLogin, fetchUserInfo } from '@/service';
-import { useRouterPush } from '@/composables';
-import { localStg } from '@/utils';
-import { useTabStore } from '../tab';
-import { useRouteStore } from '../route';
-import { getToken, getUserInfo, clearAuthStorage } from './helpers';
+import { unref, nextTick } from "vue";
+import { defineStore } from "pinia";
+import { router } from "@/router";
+import { fetchLogin, fetchUserInfo } from "@/service";
+import { useRouterPush } from "@/composables";
+import { localStg } from "@/utils";
+import { useTabStore } from "../tab";
+import { useRouteStore } from "../route";
+import { getToken, getUserInfo, clearAuthStorage } from "./helpers";
 
 interface AuthState {
   /** 用户信息 */
@@ -17,17 +17,17 @@ interface AuthState {
   loginLoading: boolean;
 }
 
-export const useAuthStore = defineStore('auth-store', {
+export const useAuthStore = defineStore("auth-store", {
   state: (): AuthState => ({
     userInfo: getUserInfo(),
     token: getToken(),
-    loginLoading: false
+    loginLoading: false,
   }),
   getters: {
     /** 是否登录 */
     isLogin(state) {
       return Boolean(state.token);
-    }
+    },
   },
   actions: {
     /** 重置auth状态 */
@@ -68,9 +68,9 @@ export const useAuthStore = defineStore('auth-store', {
         // 登录成功弹出欢迎提示
         if (route.isInitAuthRoute) {
           window.$notification?.success({
-            title: '登录成功!',
+            title: "登录成功!",
             content: `欢迎回来，${this.userInfo.userName}!`,
-            duration: 3000
+            duration: 3000,
           });
         }
 
@@ -89,14 +89,14 @@ export const useAuthStore = defineStore('auth-store', {
 
       // 先把token存储到缓存中(后面接口的请求头需要token)
       const { token, refreshToken } = backendToken;
-      localStg.set('token', token);
-      localStg.set('refreshToken', refreshToken);
+      localStg.set("token", token);
+      localStg.set("refreshToken", refreshToken);
 
       // 获取用户信息
       const { data } = await fetchUserInfo();
       if (data) {
         // 成功后把用户信息存储到缓存中
-        localStg.set('userInfo', data);
+        localStg.set("userInfo", data);
 
         // 更新状态
         this.userInfo = data;
@@ -129,17 +129,17 @@ export const useAuthStore = defineStore('auth-store', {
 
       const accounts: Record<Auth.RoleType, { userName: string; password: string }> = {
         super: {
-          userName: 'Super',
-          password: 'super123'
+          userName: "Super",
+          password: "super123",
         },
         admin: {
-          userName: 'Admin',
-          password: 'admin123'
+          userName: "Admin",
+          password: "admin123",
         },
         user: {
-          userName: 'User01',
-          password: 'user01123'
-        }
+          userName: "User01",
+          password: "user01123",
+        },
       };
       const { userName, password } = accounts[userRole];
       const { data } = await fetchLogin(userName, password);
@@ -148,6 +148,6 @@ export const useAuthStore = defineStore('auth-store', {
         resetRouteStore();
         initAuthRoute();
       }
-    }
-  }
+    },
+  },
 });

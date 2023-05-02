@@ -13,15 +13,15 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-import { routeName } from '@/router';
-import { useRouterPush } from '@/composables';
+import { useRoute } from "vue-router";
+import { routeName } from "@/router";
+import { useRouterPush } from "@/composables";
 
 const route = useRoute();
 const { routerPush } = useRouterPush();
 
 function handleToTab() {
-  routerPush({ name: routeName('function_tab') });
+  routerPush({ name: routeName("function_tab") });
 }
 </script>
 

@@ -5,10 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-import { useAppStore, useRouteStore } from '@/store';
-import { useLoading } from '@/hooks';
-defineOptions({ name: 'ReloadButton' });
+import { useRoute } from "vue-router";
+import { useAppStore, useRouteStore } from "@/store";
+import { useLoading } from "@/hooks";
+defineOptions({ name: "ReloadButton" });
 
 const app = useAppStore();
 const routeStore = useRouteStore();

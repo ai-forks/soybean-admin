@@ -21,9 +21,9 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore, useRouteStore, useThemeStore } from '@/store';
+import { useAppStore, useRouteStore, useThemeStore } from "@/store";
 
-defineOptions({ name: 'GlobalContent' });
+defineOptions({ name: "GlobalContent" });
 
 interface Props {
   /** 显示padding */
@@ -31,7 +31,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  showPadding: true
+  showPadding: true,
 });
 
 const app = useAppStore();

@@ -1,6 +1,6 @@
-import type { Router } from 'vue-router';
-import { useTitle } from '@vueuse/core';
-import { createPermissionGuard } from './permission';
+import type { Router } from "vue-router";
+import { useTitle } from "@vueuse/core";
+import { createPermissionGuard } from "./permission";
 
 /**
  * 路由守卫函数
@@ -13,7 +13,7 @@ export function createRouterGuard(router: Router) {
     // 页面跳转权限处理
     await createPermissionGuard(to, from, next);
   });
-  router.afterEach(to => {
+  router.afterEach((to) => {
     // 设置document title
     useTitle(to.meta.title);
     // 结束 loadingBar

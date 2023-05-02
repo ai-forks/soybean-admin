@@ -32,11 +32,11 @@
 </template>
 
 <script setup lang="ts">
-import { watch } from 'vue';
-import type { SelectOption } from 'naive-ui';
-import { userRoleOptions } from '@/constants';
-import { useAppStore, useAuthStore } from '@/store';
-import { usePermission } from '@/composables';
+import { watch } from "vue";
+import type { SelectOption } from "naive-ui";
+import { userRoleOptions } from "@/constants";
+import { useAppStore, useAuthStore } from "@/store";
+import { usePermission } from "@/composables";
 
 const app = useAppStore();
 const auth = useAuthStore();
@@ -48,7 +48,7 @@ watch(
   () => auth.userInfo.userRole,
   async () => {
     app.reloadPage();
-  }
+  },
 );
 </script>
 

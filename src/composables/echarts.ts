@@ -1,7 +1,7 @@
-import { nextTick, effectScope, onScopeDispose, ref, watch } from 'vue';
-import type { ComputedRef, Ref } from 'vue';
-import * as echarts from 'echarts/core';
-import { BarChart, GaugeChart, LineChart, PictorialBarChart, PieChart, RadarChart, ScatterChart } from 'echarts/charts';
+import { nextTick, effectScope, onScopeDispose, ref, watch } from "vue";
+import type { ComputedRef, Ref } from "vue";
+import * as echarts from "echarts/core";
+import { BarChart, GaugeChart, LineChart, PictorialBarChart, PieChart, RadarChart, ScatterChart } from "echarts/charts";
 import type {
   BarSeriesOption,
   GaugeSeriesOption,
@@ -9,8 +9,8 @@ import type {
   PictorialBarSeriesOption,
   PieSeriesOption,
   RadarSeriesOption,
-  ScatterSeriesOption
-} from 'echarts/charts';
+  ScatterSeriesOption,
+} from "echarts/charts";
 import {
   DatasetComponent,
   GridComponent,
@@ -18,20 +18,20 @@ import {
   TitleComponent,
   ToolboxComponent,
   TooltipComponent,
-  TransformComponent
-} from 'echarts/components';
+  TransformComponent,
+} from "echarts/components";
 import type {
   DatasetComponentOption,
   GridComponentOption,
   LegendComponentOption,
   TitleComponentOption,
   ToolboxComponentOption,
-  TooltipComponentOption
-} from 'echarts/components';
-import { LabelLayout, UniversalTransition } from 'echarts/features';
-import { CanvasRenderer } from 'echarts/renderers';
-import { useElementSize } from '@vueuse/core';
-import { useThemeStore } from '@/store';
+  TooltipComponentOption,
+} from "echarts/components";
+import { LabelLayout, UniversalTransition } from "echarts/features";
+import { CanvasRenderer } from "echarts/renderers";
+import { useElementSize } from "@vueuse/core";
+import { useThemeStore } from "@/store";
 
 export type ECOption = echarts.ComposeOption<
   | BarSeriesOption
@@ -66,7 +66,7 @@ echarts.use([
   GaugeChart,
   LabelLayout,
   UniversalTransition,
-  CanvasRenderer
+  CanvasRenderer,
 ]);
 
 /**
@@ -77,7 +77,7 @@ echarts.use([
  */
 export function useEcharts(
   options: Ref<ECOption> | ComputedRef<ECOption>,
-  renderFun?: (chartInstance: echarts.ECharts) => void
+  renderFun?: (chartInstance: echarts.ECharts) => void,
 ) {
   const theme = useThemeStore();
 
@@ -99,13 +99,13 @@ export function useEcharts(
   function update(updateOptions: ECOption) {
     if (isRendered()) {
       chart?.clear();
-      chart!.setOption({ ...updateOptions, backgroundColor: 'transparent' });
+      chart!.setOption({ ...updateOptions, backgroundColor: "transparent" });
     }
   }
 
   async function render() {
     if (domRef.value) {
-      const chartTheme = theme.darkMode ? 'dark' : 'light';
+      const chartTheme = theme.darkMode ? "dark" : "light";
       await nextTick();
       chart = echarts.init(domRef.value, chartTheme);
       if (renderFun) {
@@ -149,17 +149,17 @@ export function useEcharts(
 
     watch(
       options,
-      newValue => {
+      (newValue) => {
         update(newValue);
       },
-      { deep: true }
+      { deep: true },
     );
 
     watch(
       () => theme.darkMode,
       () => {
         updateTheme();
-      }
+      },
     );
   });
 
@@ -169,6 +169,6 @@ export function useEcharts(
   });
 
   return {
-    domRef
+    domRef,
   };
 }

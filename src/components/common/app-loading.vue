@@ -16,22 +16,22 @@
 </template>
 
 <script setup lang="ts">
-import { useAppInfo } from '@/composables';
-import { localStg, getRgbOfColor } from '@/utils';
-import themeSettings from '@/settings/theme.json';
+import { useAppInfo } from "@/composables";
+import { localStg, getRgbOfColor } from "@/utils";
+import themeSettings from "@/settings/theme.json";
 
 const { title } = useAppInfo();
 
 const lodingClasses = [
-  'left-0 top-0',
-  'left-0 bottom-0 animate-delay-500',
-  'right-0 top-0 animate-delay-1000',
-  'right-0 bottom-0 animate-delay-1500'
+  "left-0 top-0",
+  "left-0 bottom-0 animate-delay-500",
+  "right-0 top-0 animate-delay-1000",
+  "right-0 bottom-0 animate-delay-1500",
 ];
 
 function addThemeColorCssVars() {
   const defaultColor = themeSettings.themeColor;
-  const themeColor = localStg.get('themeColor') || defaultColor;
+  const themeColor = localStg.get("themeColor") || defaultColor;
 
   const { r, g, b } = getRgbOfColor(themeColor);
 

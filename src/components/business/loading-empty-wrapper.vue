@@ -22,11 +22,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, nextTick, onUnmounted, watch } from 'vue';
-import { NETWORK_ERROR_MSG } from '@/config';
-import { useBoolean } from '@/hooks';
+import { computed, nextTick, onUnmounted, watch } from "vue";
+import { NETWORK_ERROR_MSG } from "@/config";
+import { useBoolean } from "@/hooks";
 
-defineOptions({ name: 'LoadingEmptyWrapper' });
+defineOptions({ name: "LoadingEmptyWrapper" });
 
 interface Props {
   /** 是否加载 */
@@ -34,7 +34,7 @@ interface Props {
   /** 是否为空 */
   empty?: boolean;
   /** 加载图标的大小 */
-  loadingSize?: 'small' | 'medium' | 'large';
+  loadingSize?: "small" | "medium" | "large";
   /** 中间占位符的class */
   placeholderClass?: string;
   /** 空数据描述文本 */
@@ -50,12 +50,12 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   loading: false,
   empty: false,
-  loadingSize: 'medium',
-  placeholderClass: 'bg-white dark:bg-dark transition-background-color duration-300 ease-in-out',
-  emptyDesc: '暂无数据',
-  iconClass: 'text-320px text-primary',
-  descClass: 'text-16px text-#666',
-  showNetworkReload: false
+  loadingSize: "medium",
+  placeholderClass: "bg-white dark:bg-dark transition-background-color duration-300 ease-in-out",
+  emptyDesc: "暂无数据",
+  iconClass: "text-320px text-primary",
+  descClass: "text-16px text-#666",
+  showNetworkReload: false,
 });
 
 // 网络状态
@@ -68,7 +68,7 @@ const isEmpty = computed(() => props.empty && !props.loading && network.value);
 const showPlaceholder = computed(() => props.loading || isEmpty.value || !network.value);
 
 const networkErrorDesc = computed(() =>
-  props.showNetworkReload ? `${NETWORK_ERROR_MSG}, 点击重试` : NETWORK_ERROR_MSG
+  props.showNetworkReload ? `${NETWORK_ERROR_MSG}, 点击重试` : NETWORK_ERROR_MSG,
 );
 
 function handleReload() {
@@ -81,12 +81,12 @@ function handleReload() {
 
 const stopHandle = watch(
   () => props.loading,
-  newValue => {
+  (newValue) => {
     // 结束加载判断一下网络状态
     if (!newValue) {
       setNetwork(window.navigator.onLine);
     }
-  }
+  },
 );
 
 onUnmounted(() => {

@@ -7,12 +7,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref, watch } from 'vue';
-import { useElementSize } from '@vueuse/core';
-import BScroll from '@better-scroll/core';
-import type { Options } from '@better-scroll/core';
+import { computed, onMounted, ref, watch } from "vue";
+import { useElementSize } from "@vueuse/core";
+import BScroll from "@better-scroll/core";
+import type { Options } from "@better-scroll/core";
 
-defineOptions({ name: 'BetterScroll' });
+defineOptions({ name: "BetterScroll" });
 
 interface Props {
   /** better-scroll的配置: https://better-scroll.github.io/docs/zh-CN/guide/base-scroll-options.html */

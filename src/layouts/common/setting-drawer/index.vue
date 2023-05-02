@@ -13,14 +13,14 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/store';
-import { DarkMode, DrawerButton, LayoutMode, PageFunc, PageView, ThemeColorSelect, ThemeConfig } from './components';
+import { useAppStore } from "@/store";
+import { DarkMode, DrawerButton, LayoutMode, PageFunc, PageView, ThemeColorSelect, ThemeConfig } from "./components";
 
-defineOptions({ name: 'SettingDrawer' });
+defineOptions({ name: "SettingDrawer" });
 
 const app = useAppStore();
 
-const showButton = import.meta.env.DEV || import.meta.env.VITE_VERCEL === 'Y';
+const showButton = import.meta.env.DEV || import.meta.env.VITE_VERCEL === "Y";
 </script>
 
 <style scoped></style>

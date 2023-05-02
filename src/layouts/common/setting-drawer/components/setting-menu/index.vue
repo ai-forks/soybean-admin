@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-defineOptions({ name: 'SettingMenu' });
+defineOptions({ name: "SettingMenu" });
 
 interface Props {
   /** 文本 */

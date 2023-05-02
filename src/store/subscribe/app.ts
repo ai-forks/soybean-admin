@@ -1,6 +1,6 @@
-import { effectScope, onScopeDispose, watch } from 'vue';
-import { useFullscreen } from '@vueuse/core';
-import { useAppStore } from '../modules';
+import { effectScope, onScopeDispose, watch } from "vue";
+import { useFullscreen } from "@vueuse/core";
+import { useAppStore } from "../modules";
 
 /** 订阅app store */
 export default function subscribeAppStore() {
@@ -24,10 +24,10 @@ export default function subscribeAppStore() {
       () => app.contentFull,
       () => {
         update();
-      }
+      },
     );
 
-    watch(isFullscreen, newValue => {
+    watch(isFullscreen, (newValue) => {
       if (!newValue) {
         app.setContentFull(false);
       }

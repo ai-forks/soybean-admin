@@ -22,9 +22,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
-import type { DataTableColumn } from 'naive-ui';
-import VueDraggable from 'vuedraggable';
+import { ref, watch } from "vue";
+import type { DataTableColumn } from "naive-ui";
+import VueDraggable from "vuedraggable";
 
 type Column = DataTableColumn<UserManagement.User>;
 
@@ -35,7 +35,7 @@ interface Props {
 const props = defineProps<Props>();
 
 interface Emits {
-  (e: 'update:columns', columns: Column[]): void;
+  (e: "update:columns", columns: Column[]): void;
 }
 
 const emit = defineEmits<Emits>();
@@ -45,24 +45,24 @@ type List = Column & { checked?: boolean };
 const list = ref(initList());
 
 function initList(): List[] {
-  return props.columns.map(item => ({ ...item, checked: true }));
+  return props.columns.map((item) => ({ ...item, checked: true }));
 }
 
 watch(
   list,
-  newValue => {
-    const newColumns = newValue.filter(item => item.checked);
+  (newValue) => {
+    const newColumns = newValue.filter((item) => item.checked);
 
-    const columns: Column[] = newColumns.map(item => {
+    const columns: Column[] = newColumns.map((item) => {
       const column = { ...item };
       delete column.checked;
 
       return column;
     }) as Column[];
 
-    emit('update:columns', columns);
+    emit("update:columns", columns);
   },
-  { deep: true }
+  { deep: true },
 );
 </script>
 

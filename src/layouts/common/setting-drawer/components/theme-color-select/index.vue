@@ -13,20 +13,20 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { isInTraditionColors } from '@/settings';
-import { useThemeStore } from '@/store';
-import { useBoolean } from '@/hooks';
-import { ColorCheckbox, ColorModal } from './components';
+import { computed } from "vue";
+import { isInTraditionColors } from "@/settings";
+import { useThemeStore } from "@/store";
+import { useBoolean } from "@/hooks";
+import { ColorCheckbox, ColorModal } from "./components";
 
-defineOptions({ name: 'ThemeColorSelect' });
+defineOptions({ name: "ThemeColorSelect" });
 
 const theme = useThemeStore();
 
 const { bool: visible, setTrue: openModal, setFalse: closeModal } = useBoolean();
 
 const isInOther = computed(() => isInTraditionColors(theme.themeColor));
-const otherColorBtnType = computed(() => (isInOther.value ? 'primary' : 'default'));
+const otherColorBtnType = computed(() => (isInOther.value ? "primary" : "default"));
 </script>
 
 <style scoped></style>

@@ -34,10 +34,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useThemeStore } from '@/store';
-import SettingMenu from '../setting-menu/index.vue';
+import { useThemeStore } from "@/store";
+import SettingMenu from "../setting-menu/index.vue";
 
-defineOptions({ name: 'DarkMode' });
+defineOptions({ name: "DarkMode" });
 
 const theme = useThemeStore();
 </script>

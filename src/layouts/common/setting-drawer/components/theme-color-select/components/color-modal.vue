@@ -23,11 +23,11 @@
 </template>
 
 <script setup lang="ts">
-import { traditionColors } from '@/settings';
-import { useThemeStore } from '@/store';
-import ColorCheckbox from './color-checkbox.vue';
+import { traditionColors } from "@/settings";
+import { useThemeStore } from "@/store";
+import ColorCheckbox from "./color-checkbox.vue";
 
-defineOptions({ name: 'ColorModal' });
+defineOptions({ name: "ColorModal" });
 
 interface Props {
   visible: boolean;
@@ -36,7 +36,7 @@ interface Props {
 defineProps<Props>();
 
 interface Emits {
-  (e: 'close'): void;
+  (e: "close"): void;
 }
 
 const emit = defineEmits<Emits>();
@@ -44,7 +44,7 @@ const emit = defineEmits<Emits>();
 const theme = useThemeStore();
 
 function handleClose() {
-  emit('close');
+  emit("close");
 }
 </script>
 

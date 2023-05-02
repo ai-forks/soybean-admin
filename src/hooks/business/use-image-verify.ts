@@ -1,4 +1,4 @@
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from "vue";
 
 /**
  * 绘制图形验证码
@@ -7,7 +7,7 @@ import { onMounted, ref } from 'vue';
  */
 export default function useImageVerify(width = 152, height = 40) {
   const domRef = ref<HTMLCanvasElement>();
-  const imgCode = ref('');
+  const imgCode = ref("");
 
   function setImgCode(code: string) {
     imgCode.value = code;
@@ -26,7 +26,7 @@ export default function useImageVerify(width = 152, height = 40) {
     domRef,
     imgCode,
     setImgCode,
-    getImgCode
+    getImgCode,
   };
 }
 
@@ -43,11 +43,11 @@ function randomColor(min: number, max: number) {
 }
 
 function draw(dom: HTMLCanvasElement, width: number, height: number) {
-  let imgCode = '';
+  let imgCode = "";
 
-  const NUMBER_STRING = '0123456789';
+  const NUMBER_STRING = "0123456789";
 
-  const ctx = dom.getContext('2d');
+  const ctx = dom.getContext("2d");
   if (!ctx) return imgCode;
 
   ctx.fillStyle = randomColor(180, 230);
@@ -59,7 +59,7 @@ function draw(dom: HTMLCanvasElement, width: number, height: number) {
     const fontSize = randomNum(18, 41);
     const deg = randomNum(-30, 30);
     ctx.font = `${fontSize}px Simhei`;
-    ctx.textBaseline = 'top';
+    ctx.textBaseline = "top";
     ctx.fillStyle = randomColor(80, 150);
     ctx.save();
     ctx.translate(30 * i + 23, 15);

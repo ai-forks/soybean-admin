@@ -6,7 +6,7 @@
  */
 export function getBreadcrumbByRouteKey(activeKey: string, menus: App.GlobalMenuOption[], rootPath: string) {
   const breadcrumbMenu = getBreadcrumbMenu(activeKey, menus);
-  const breadcrumb = breadcrumbMenu.map(item => transformBreadcrumbMenuToBreadcrumb(item, rootPath));
+  const breadcrumb = breadcrumbMenu.map((item) => transformBreadcrumbMenuToBreadcrumb(item, rootPath));
   return breadcrumb;
 }
 
@@ -17,7 +17,7 @@ export function getBreadcrumbByRouteKey(activeKey: string, menus: App.GlobalMenu
  */
 function getBreadcrumbMenu(activeKey: string, menus: App.GlobalMenuOption[]) {
   const breadcrumbMenu: App.GlobalMenuOption[] = [];
-  menus.some(menu => {
+  menus.some((menu) => {
     const flag = activeKey.includes(menu.routeName);
     if (flag) {
       breadcrumbMenu.push(...getBreadcrumbMenuItem(activeKey, menu));
@@ -40,7 +40,7 @@ function getBreadcrumbMenuItem(activeKey: string, menu: App.GlobalMenuOption) {
   if (activeKey.includes(menu.routeName) && menu.children && menu.children.length) {
     breadcrumbMenu.push(menu);
     breadcrumbMenu.push(
-      ...menu.children.map(item => getBreadcrumbMenuItem(activeKey, item as App.GlobalMenuOption)).flat(1)
+      ...menu.children.map((item) => getBreadcrumbMenuItem(activeKey, item as App.GlobalMenuOption)).flat(1),
     );
   }
 
@@ -59,14 +59,14 @@ function transformBreadcrumbMenuToBreadcrumb(menu: App.GlobalMenuOption, rootPat
     label: menu.label as string,
     routeName: menu.routeName,
     disabled: menu.routePath === rootPath,
-    hasChildren
+    hasChildren,
   };
   if (menu.icon) {
     breadcrumb.icon = menu.icon;
   }
   if (hasChildren) {
-    breadcrumb.children = menu.children?.map(item =>
-      transformBreadcrumbMenuToBreadcrumb(item as App.GlobalMenuOption, rootPath)
+    breadcrumb.children = menu.children?.map((item) =>
+      transformBreadcrumbMenuToBreadcrumb(item as App.GlobalMenuOption, rootPath),
     );
   }
   return breadcrumb;

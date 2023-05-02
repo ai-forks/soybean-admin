@@ -10,8 +10,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import WangEditor from 'wangeditor';
+import { onMounted, ref } from "vue";
+import WangEditor from "wangeditor";
 
 const editor = ref<WangEditor>();
 const domRef = ref<HTMLElement>();

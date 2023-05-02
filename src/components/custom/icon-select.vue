@@ -24,9 +24,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue';
+import { computed, ref } from "vue";
 
-defineOptions({ name: 'IconSelect' });
+defineOptions({ name: "IconSelect" });
 
 interface Props {
   /** 选中的图标 */
@@ -38,11 +38,11 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  emptyIcon: 'mdi:apps'
+  emptyIcon: "mdi:apps",
 });
 
 interface Emits {
-  (e: 'update:value', val: string): void;
+  (e: "update:value", val: string): void;
 }
 
 const emit = defineEmits<Emits>();
@@ -52,15 +52,15 @@ const modelValue = computed({
     return props.value;
   },
   set(val: string) {
-    emit('update:value', val);
-  }
+    emit("update:value", val);
+  },
 });
 
 const selectedIcon = computed(() => modelValue.value || props.emptyIcon);
 
-const searchValue = ref('');
+const searchValue = ref("");
 
-const iconsList = computed(() => props.icons.filter(v => v.includes(searchValue.value)));
+const iconsList = computed(() => props.icons.filter((v) => v.includes(searchValue.value)));
 
 function handleChange(iconItem: string) {
   modelValue.value = iconItem;

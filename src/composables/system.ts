@@ -1,6 +1,6 @@
-import UAParser from 'ua-parser-js';
-import { useAuthStore } from '@/store';
-import { isArray, isString } from '@/utils';
+import UAParser from "ua-parser-js";
+import { useAuthStore } from "@/store";
+import { isArray, isString } from "@/utils";
 
 interface AppInfo {
   /** 项目名称 */
@@ -18,7 +18,7 @@ export function useAppInfo(): AppInfo {
   return {
     name,
     title,
-    desc
+    desc,
   };
 }
 
@@ -36,7 +36,7 @@ export function usePermission() {
   function hasPermission(permission: Auth.RoleType | Auth.RoleType[]) {
     const { userRole } = auth.userInfo;
 
-    let has = userRole === 'super';
+    let has = userRole === "super";
     if (!has) {
       if (isArray(permission)) {
         has = (permission as Auth.RoleType[]).includes(userRole);
@@ -49,6 +49,6 @@ export function usePermission() {
   }
 
   return {
-    hasPermission
+    hasPermission,
   };
 }

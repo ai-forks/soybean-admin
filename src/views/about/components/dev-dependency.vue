@@ -9,9 +9,9 @@
 </template>
 
 <script setup lang="ts">
-import { pkgJson } from './model';
+import { pkgJson } from "./model";
 
-defineOptions({ name: 'DevDependency' });
+defineOptions({ name: "DevDependency" });
 
 const { devDependencies } = pkgJson;
 </script>

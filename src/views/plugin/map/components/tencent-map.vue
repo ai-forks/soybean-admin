@@ -3,11 +3,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { useScriptTag } from '@vueuse/core';
-import { TENCENT_MAP_SDK_URL } from '@/config';
+import { onMounted, ref } from "vue";
+import { useScriptTag } from "@vueuse/core";
+import { TENCENT_MAP_SDK_URL } from "@/config";
 
-defineOptions({ name: 'TencentMap' });
+defineOptions({ name: "TencentMap" });
 
 const { load } = useScriptTag(TENCENT_MAP_SDK_URL);
 
@@ -20,7 +20,7 @@ async function renderMap() {
   new TMap.Map(domRef.value, {
     center: new TMap.LatLng(39.98412, 116.307484),
     zoom: 11,
-    viewMode: '3D'
+    viewMode: "3D",
   });
 }
 

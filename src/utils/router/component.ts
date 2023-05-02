@@ -1,7 +1,7 @@
-import type { RouteComponent } from 'vue-router';
-import { BasicLayout, BlankLayout } from '@/layouts';
-import { views } from '@/views';
-import { isFunction } from '../common';
+import type { RouteComponent } from "vue-router";
+import { BasicLayout, BlankLayout } from "@/layouts";
+import { views } from "@/views";
+import { isFunction } from "../common";
 
 type Lazy<T> = () => Promise<T>;
 
@@ -18,7 +18,7 @@ type LayoutComponent = Record<UnionKey.LayoutComponentType, Lazy<ModuleComponent
 export function getLayoutComponent(layoutType: UnionKey.LayoutComponentType) {
   const layoutComponent: LayoutComponent = {
     basic: BasicLayout,
-    blank: BlankLayout
+    blank: BlankLayout,
   };
   return layoutComponent[layoutType];
 }

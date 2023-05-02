@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed } from "vue";
 
-defineOptions({ name: 'ColorCheckbox' });
+defineOptions({ name: "ColorCheckbox" });
 
 interface Props {
   /** 颜色 */
@@ -19,10 +19,10 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  iconClass: 'text-14px'
+  iconClass: "text-14px",
 });
 
-const whiteColors = ['#ffffff', '#fff', 'rgb(255,255,255)'];
+const whiteColors = ["#ffffff", "#fff", "rgb(255,255,255)"];
 const isWhite = computed(() => whiteColors.includes(props.color));
 </script>
 

@@ -15,10 +15,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
-import type { PopoverPlacement } from 'naive-ui';
+import { computed } from "vue";
+import type { PopoverPlacement } from "naive-ui";
 
-defineOptions({ name: 'HoverContainer' });
+defineOptions({ name: "HoverContainer" });
 
 interface Props {
   /** tooltip显示文本 */
@@ -32,16 +32,16 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  tooltipContent: '',
-  placement: 'bottom',
-  contentClass: '',
-  inverted: false
+  tooltipContent: "",
+  placement: "bottom",
+  contentClass: "",
+  inverted: false,
 });
 
 const showTooltip = computed(() => Boolean(props.tooltipContent));
 
 const contentClassName = computed(
-  () => `${props.contentClass} ${props.inverted ? 'hover:bg-primary' : 'hover:bg-#f6f6f6'}`
+  () => `${props.contentClass} ${props.inverted ? "hover:bg-primary" : "hover:bg-#f6f6f6"}`,
 );
 </script>
 

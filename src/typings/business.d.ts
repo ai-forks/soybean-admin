@@ -6,7 +6,7 @@ declare namespace Auth {
    * - admin: 管理员
    * - user: 用户
    */
-  type RoleType = 'super' | 'admin' | 'user';
+  type RoleType = "super" | "admin" | "user";
 
   /** 用户信息 */
   interface UserInfo {
@@ -32,7 +32,7 @@ declare namespace UserManagement {
    * - 0: 女
    * - 1: 男
    */
-  type GenderKey = NonNullable<User['gender']>;
+  type GenderKey = NonNullable<User["gender"]>;
 
   /**
    * 用户状态
@@ -41,5 +41,5 @@ declare namespace UserManagement {
    * - 3: 冻结
    * - 4: 软删除
    */
-  type UserStatusKey = NonNullable<User['userStatus']>;
+  type UserStatusKey = NonNullable<User["userStatus"]>;
 }

@@ -1,5 +1,5 @@
-import { h } from 'vue';
-import SvgIcon from '~/src/components/custom/svg-icon.vue';
+import { h } from "vue";
+import SvgIcon from "~/src/components/custom/svg-icon.vue";
 
 /**
  * 图标渲染
@@ -48,13 +48,13 @@ export const useIconRender = () => {
     }
 
     if (!icon && !localIcon) {
-      window.console.warn('没有传递图标名称，请确保给icon或localIcon传递有效值!');
+      window.console.warn("没有传递图标名称，请确保给icon或localIcon传递有效值!");
     }
 
     return () => h(SvgIcon, { icon, localIcon, style });
   };
 
   return {
-    iconRender
+    iconRender,
   };
 };

@@ -11,9 +11,9 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/store';
+import { useAppStore } from "@/store";
 
-defineOptions({ name: 'DrawerButton' });
+defineOptions({ name: "DrawerButton" });
 
 const app = useAppStore();
 </script>

@@ -21,13 +21,13 @@
 </template>
 
 <script setup lang="ts">
-import SwiperCore, { Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import type { SwiperOptions } from 'swiper';
+import SwiperCore, { Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import type { SwiperOptions } from "swiper";
 
 type SwiperExampleOptions = Pick<
   SwiperOptions,
-  'navigation' | 'pagination' | 'scrollbar' | 'slidesPerView' | 'slidesPerGroup' | 'spaceBetween' | 'direction' | 'loop'
+  "navigation" | "pagination" | "scrollbar" | "slidesPerView" | "slidesPerGroup" | "spaceBetween" | "direction" | "loop"
 >;
 
 interface SwiperExample {
@@ -39,70 +39,70 @@ interface SwiperExample {
 SwiperCore.use([Navigation, Pagination]);
 
 const swiperExample: SwiperExample[] = [
-  { id: 0, label: 'Default', options: {} },
+  { id: 0, label: "Default", options: {} },
   {
     id: 1,
-    label: 'Navigation',
+    label: "Navigation",
     options: {
-      navigation: true
-    }
+      navigation: true,
+    },
   },
   {
     id: 2,
-    label: 'Pagination',
+    label: "Pagination",
     options: {
-      pagination: true
-    }
+      pagination: true,
+    },
   },
   {
     id: 3,
-    label: 'Pagination dynamic',
+    label: "Pagination dynamic",
     options: {
-      pagination: { dynamicBullets: true }
-    }
+      pagination: { dynamicBullets: true },
+    },
   },
   {
     id: 4,
-    label: 'Pagination progress',
+    label: "Pagination progress",
     options: {
       navigation: true,
       pagination: {
-        type: 'progressbar'
-      }
-    }
+        type: "progressbar",
+      },
+    },
   },
   {
     id: 5,
-    label: 'Pagination fraction',
+    label: "Pagination fraction",
     options: {
       navigation: true,
       pagination: {
-        type: 'fraction'
-      }
-    }
+        type: "fraction",
+      },
+    },
   },
   {
     id: 6,
-    label: 'Slides per view',
+    label: "Slides per view",
     options: {
       pagination: {
-        clickable: true
+        clickable: true,
       },
       slidesPerView: 3,
-      spaceBetween: 30
-    }
+      spaceBetween: 30,
+    },
   },
   {
     id: 7,
-    label: 'Infinite loop',
+    label: "Infinite loop",
     options: {
       navigation: true,
       pagination: {
-        clickable: true
+        clickable: true,
       },
-      loop: true
-    }
-  }
+      loop: true,
+    },
+  },
 ];
 </script>
 

@@ -10,11 +10,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue';
-import Clipboard from 'clipboard';
-import { useThemeStore } from '@/store';
+import { onMounted, onUnmounted, ref, watch } from "vue";
+import Clipboard from "clipboard";
+import { useThemeStore } from "@/store";
 
-defineOptions({ name: 'ThemeConfig' });
+defineOptions({ name: "ThemeConfig" });
 
 const theme = useThemeStore();
 
@@ -28,17 +28,17 @@ function getClipboardText() {
 
 function handleResetConfig() {
   theme.resetThemeStore();
-  window.$message?.success('已重置配置，请重新拷贝！');
+  window.$message?.success("已重置配置，请重新拷贝！");
 }
 
 function clipboardEventListener() {
   if (!copyRef.value) return;
   const copy = new Clipboard(copyRef.value);
-  copy.on('success', () => {
+  copy.on("success", () => {
     window.$dialog?.success({
-      title: '操作成功',
-      content: '复制成功,请替换 src/settings/theme.json的内容！',
-      positiveText: '确定'
+      title: "操作成功",
+      content: "复制成功,请替换 src/settings/theme.json的内容！",
+      positiveText: "确定",
     });
   });
 }
@@ -48,7 +48,7 @@ const stopHandle = watch(
   () => {
     dataClipboardText.value = getClipboardText();
   },
-  { deep: true }
+  { deep: true },
 );
 
 onMounted(() => {

@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useThemeStore } from '@/store';
+import { useThemeStore } from "@/store";
 
-defineOptions({ name: 'ThemeMode' });
+defineOptions({ name: "ThemeMode" });
 
 const theme = useThemeStore();
 </script>

@@ -1,6 +1,6 @@
-import qs from 'qs';
-import FormData from 'form-data';
-import { isArray, isFile } from '../common';
+import qs from "qs";
+import FormData from "form-data";
+import { isArray, isFile } from "../common";
 
 /**
  * 请求数据的转换
@@ -11,11 +11,11 @@ export async function transformRequestData(requestData: any, contentType?: Union
   // application/json类型不处理
   let data = requestData;
   // form类型转换
-  if (contentType === 'application/x-www-form-urlencoded') {
+  if (contentType === "application/x-www-form-urlencoded") {
     data = qs.stringify(requestData);
   }
   // form-data类型转换
-  if (contentType === 'multipart/form-data') {
+  if (contentType === "multipart/form-data") {
     data = await handleFormData(requestData);
   }
 
@@ -48,10 +48,10 @@ async function transformFile(formData: FormData, key: string, file: File[] | Fil
   if (isArray(file)) {
     // 多文件
     await Promise.all(
-      (file as File[]).map(item => {
+      (file as File[]).map((item) => {
         formData.append(key, item);
         return true;
-      })
+      }),
     );
   } else {
     // 单文件

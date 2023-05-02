@@ -29,10 +29,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { routeName } from '@/router';
+import { ref, computed } from "vue";
+import { routeName } from "@/router";
 
-const routeHomePath = routeName('root');
+const routeHomePath = routeName("root");
 
 interface EllipseConfig {
   /** 左上角x坐标 */
@@ -52,7 +52,7 @@ const ellipseConfig: EllipseConfig = {
   cY: 102,
   rX: 200,
   rY: 100,
-  strokeWidth: 2
+  strokeWidth: 2,
 };
 
 const containerStyle = (() => {

@@ -36,17 +36,19 @@
 </template>
 
 <script setup lang="ts">
-import { AdminLayout } from '@soybeanjs/vue-materials';
-import { useAppStore, useThemeStore } from '@/store';
-import { useBasicLayout } from '@/composables';
-import { GlobalContent, GlobalFooter, GlobalHeader, GlobalSider, GlobalTab, SettingDrawer } from '../common';
+import { AdminLayout } from "@soybeanjs/vue-materials";
+import { useAppStore, useThemeStore } from "@/store";
+import { useBasicLayout } from "@/composables";
+import { GlobalContent, GlobalFooter, GlobalHeader, GlobalSider, GlobalTab, SettingDrawer } from "../common";
 
-defineOptions({ name: 'BasicLayout' });
+defineOptions({ name: "BasicLayout" });
 
 const app = useAppStore();
 const theme = useThemeStore();
-
 const { mode, headerProps, siderVisible, siderWidth, siderCollapsedWidth } = useBasicLayout();
+
+app.init();
+
 </script>
 
 <style lang="scss">

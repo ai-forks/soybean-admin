@@ -1,3 +1,3 @@
-import ContextMenu from './context-menu.vue';
+import ContextMenu from "./context-menu.vue";
 
 export { ContextMenu };

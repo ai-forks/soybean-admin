@@ -1,8 +1,8 @@
-import type { RouterScrollBehavior } from 'vue-router';
-import { useAppStore, useTabStore } from '@/store';
+import type { RouterScrollBehavior } from "vue-router";
+import { useAppStore, useTabStore } from "@/store";
 
 export const scrollBehavior: RouterScrollBehavior = (to, from) => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const app = useAppStore();
     const tab = useTabStore();
 
@@ -11,7 +11,7 @@ export const scrollBehavior: RouterScrollBehavior = (to, from) => {
       if (el) {
         resolve({
           el,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }
     }
@@ -19,7 +19,7 @@ export const scrollBehavior: RouterScrollBehavior = (to, from) => {
     const { left, top } = tab.getTabScrollPosition(to.path);
     const scrollPosition = {
       left,
-      top
+      top,
     };
     const { scrollEl, scrollLeft, scrollTop } = app.getScrollConfig();
 

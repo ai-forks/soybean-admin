@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref } from "vue";
 
 /**
  * boolean组合式函数
@@ -25,6 +25,6 @@ export default function useBoolean(initValue = false) {
     setBool,
     setTrue,
     setFalse,
-    toggle
+    toggle,
   };
 }

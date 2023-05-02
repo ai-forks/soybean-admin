@@ -1,6 +1,7 @@
-import { nextTick } from 'vue';
-import { defineStore } from 'pinia';
-import { SCROLL_EL_ID } from '@soybeanjs/vue-materials';
+import { nextTick } from "vue";
+import { defineStore } from "pinia";
+import { SCROLL_EL_ID } from "@soybeanjs/vue-materials";
+import { langList, lang } from "../../../locales";
 
 interface AppState {
   /** 滚动元素的id */
@@ -17,9 +18,12 @@ interface AppState {
   siderCollapse: boolean;
   /** vertical-mix模式下 侧边栏的固定状态 */
   mixSiderFixed: boolean;
+  /** 当前 语言 */
+  lang: string;
+  /** 支持语言列表 */
+  langs: { label: string; key: string }[];
 }
-
-export const useAppStore = defineStore('app-store', {
+export const useAppStore = defineStore("app-store", {
   state: (): AppState => ({
     scrollElId: SCROLL_EL_ID,
     contentFull: false,
@@ -27,9 +31,22 @@ export const useAppStore = defineStore('app-store', {
     reloadFlag: true,
     settingDrawerVisible: false,
     siderCollapse: false,
-    mixSiderFixed: false
+    mixSiderFixed: false,
+    lang: lang,
+    langs: langList,
   }),
   actions: {
+    async init() {
+      console.info("==========app init============");
+      this.setLang(lang, langList);
+    },
+    setLang(lang: string = navigator.language) {
+      this.lang = lang;
+      localStorage.setItem("lang", lang);
+    },
+    getLang() {
+      return this.lang;
+    },
     /**
      * 获取滚动配置
      */
@@ -41,7 +58,7 @@ export const useAppStore = defineStore('app-store', {
       return {
         scrollEl,
         scrollLeft,
-        scrollTop
+        scrollTop,
       };
     },
     /**
@@ -97,6 +114,6 @@ export const useAppStore = defineStore('app-store', {
     /** 设置主体内容全屏 */
     setContentFull(full: boolean) {
       this.contentFull = full;
-    }
-  }
+    },
+  },
 });

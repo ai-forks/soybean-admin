@@ -12,10 +12,10 @@
 </template>
 
 <script setup lang="ts">
-import { defineComponent, h } from 'vue';
-import { useDialog, useLoadingBar, useMessage, useNotification } from 'naive-ui';
+import { defineComponent, h } from "vue";
+import { useDialog, useLoadingBar, useMessage, useNotification } from "naive-ui";
 
-defineOptions({ name: 'NaiveProvider' });
+defineOptions({ name: "NaiveProvider" });
 
 // 挂载naive组件的方法至window, 以便在路由钩子函数和请求函数里面调用
 function registerNaiveTools() {
@@ -26,13 +26,13 @@ function registerNaiveTools() {
 }
 
 const NaiveProviderContent = defineComponent({
-  name: 'NaiveProviderContent',
+  name: "NaiveProviderContent",
   setup() {
     registerNaiveTools();
   },
   render() {
-    return h('div');
-  }
+    return h("div");
+  },
 });
 </script>
 <style scoped></style>

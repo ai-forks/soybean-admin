@@ -6,23 +6,24 @@
       <global-breadcrumb v-if="theme.header.crumb.visible && !isMobile" />
     </div>
     <header-menu v-else />
-    <div class="flex justify-end h-full">
+    <div class="flex justify-end h-full mr-4">
       <global-search />
-      <github-site />
+      <!--github-site /-->
       <full-screen />
       <theme-mode />
+      <locale-switch />
       <system-message />
       <setting-button v-if="showButton" />
-      <user-avatar />
+      <user-avatar v-if="auth.isLogin" />
     </div>
   </dark-mode-container>
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store';
-import { useBasicLayout } from '@/composables';
-import GlobalLogo from '../global-logo/index.vue';
-import GlobalSearch from '../global-search/index.vue';
+import { useThemeStore, useAuthStore } from "@/store";
+import { useBasicLayout } from "@/composables";
+import GlobalLogo from "../global-logo/index.vue";
+import GlobalSearch from "../global-search/index.vue";
 import {
   FullScreen,
   GithubSite,
@@ -32,26 +33,28 @@ import {
   SettingButton,
   SystemMessage,
   ThemeMode,
-  UserAvatar
-} from './components';
+  UserAvatar,
+  LocaleSwitch
+} from "./components";
 
-defineOptions({ name: 'GlobalHeader' });
+defineOptions({ name: "GlobalHeader" });
 
 interface Props {
   /** 显示logo */
-  showLogo: App.GlobalHeaderProps['showLogo'];
+  showLogo: App.GlobalHeaderProps["showLogo"];
   /** 显示头部菜单 */
-  showHeaderMenu: App.GlobalHeaderProps['showHeaderMenu'];
+  showHeaderMenu: App.GlobalHeaderProps["showHeaderMenu"];
   /** 显示菜单折叠按钮 */
-  showMenuCollapse: App.GlobalHeaderProps['showMenuCollapse'];
+  showMenuCollapse: App.GlobalHeaderProps["showMenuCollapse"];
 }
 
 defineProps<Props>();
 
 const theme = useThemeStore();
+const auth = useAuthStore();
 const { isMobile } = useBasicLayout();
 
-const showButton = import.meta.env.PROD && import.meta.env.VITE_VERCEL !== 'Y';
+const showButton = import.meta.env.PROD && import.meta.env.VITE_VERCEL !== "Y";
 </script>
 
 <style scoped>

@@ -42,10 +42,10 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store';
-import { LayoutCard } from './components';
+import { useThemeStore } from "@/store";
+import { LayoutCard } from "./components";
 
-defineOptions({ name: 'LayoutMode' });
+defineOptions({ name: "LayoutMode" });
 
 const theme = useThemeStore();
 </script>

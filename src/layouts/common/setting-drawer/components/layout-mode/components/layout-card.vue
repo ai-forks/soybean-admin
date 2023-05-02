@@ -18,10 +18,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { PopoverPlacement } from 'naive-ui';
+import { computed } from "vue";
+import type { PopoverPlacement } from "naive-ui";
 
-defineOptions({ name: 'LayoutCard' });
+defineOptions({ name: "LayoutCard" });
 
 interface Props {
   /** 布局模式 */
@@ -46,29 +46,29 @@ type LayoutConfig = Record<
 
 const layoutConfig: LayoutConfig = {
   vertical: {
-    placement: 'bottom-start',
-    headerClass: '',
-    menuClass: 'w-1/3 h-full',
-    mainClass: 'w-2/3 h-3/4'
+    placement: "bottom-start",
+    headerClass: "",
+    menuClass: "w-1/3 h-full",
+    mainClass: "w-2/3 h-3/4",
   },
-  'vertical-mix': {
-    placement: 'bottom',
-    headerClass: '',
-    menuClass: 'w-1/4 h-full',
-    mainClass: 'w-2/3 h-3/4'
+  "vertical-mix": {
+    placement: "bottom",
+    headerClass: "",
+    menuClass: "w-1/4 h-full",
+    mainClass: "w-2/3 h-3/4",
   },
   horizontal: {
-    placement: 'bottom',
-    headerClass: '',
-    menuClass: 'w-full h-1/4',
-    mainClass: 'w-full h-3/4'
+    placement: "bottom",
+    headerClass: "",
+    menuClass: "w-full h-1/4",
+    mainClass: "w-full h-3/4",
   },
-  'horizontal-mix': {
-    placement: 'bottom-end',
-    headerClass: '',
-    menuClass: 'w-full h-1/4',
-    mainClass: 'w-2/3 h-3/4'
-  }
+  "horizontal-mix": {
+    placement: "bottom-end",
+    headerClass: "",
+    menuClass: "w-full h-1/4",
+    mainClass: "w-2/3 h-3/4",
+  },
 };
 
 const activeConfig = computed(() => layoutConfig[props.mode]);

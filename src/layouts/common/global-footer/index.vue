@@ -5,9 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store';
+import { useThemeStore } from "@/store";
 
-defineOptions({ name: 'GlobalFooter' });
+defineOptions({ name: "GlobalFooter" });
 
 const theme = useThemeStore();
 </script>

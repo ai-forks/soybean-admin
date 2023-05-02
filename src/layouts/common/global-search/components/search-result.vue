@@ -6,7 +6,7 @@
           class="bg-#e5e7eb dark:bg-dark h-56px mt-8px px-14px rounded-4px cursor-pointer flex-y-center justify-between"
           :style="{
             background: item.path === active ? theme.themeColor : '',
-            color: item.path === active ? '#fff' : ''
+            color: item.path === active ? '#fff' : '',
           }"
           @click="handleTo"
           @mouseenter="handleMouse(item)"
@@ -21,10 +21,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
-import { useThemeStore } from '@/store';
+import { computed } from "vue";
+import { useThemeStore } from "@/store";
 
-defineOptions({ name: 'SearchResult' });
+defineOptions({ name: "SearchResult" });
 
 interface Props {
   value: string;
@@ -34,8 +34,8 @@ interface Props {
 const props = defineProps<Props>();
 
 interface Emits {
-  (e: 'update:value', val: string): void;
-  (e: 'enter'): void;
+  (e: "update:value", val: string): void;
+  (e: "enter"): void;
 }
 
 const emit = defineEmits<Emits>();
@@ -47,8 +47,8 @@ const active = computed({
     return props.value;
   },
   set(val: string) {
-    emit('update:value', val);
-  }
+    emit("update:value", val);
+  },
 });
 
 /** 鼠标移入 */
@@ -57,7 +57,7 @@ async function handleMouse(item: AuthRoute.Route) {
 }
 
 function handleTo() {
-  emit('enter');
+  emit("enter");
 }
 </script>
 

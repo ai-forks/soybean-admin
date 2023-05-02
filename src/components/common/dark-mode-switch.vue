@@ -6,9 +6,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed } from "vue";
 
-defineOptions({ name: 'DarkModeSwitch' });
+defineOptions({ name: "DarkModeSwitch" });
 
 interface Props {
   /** 暗黑模式 */
@@ -16,11 +16,11 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  dark: false
+  dark: false,
 });
 
 interface Emits {
-  (e: 'update:dark', darkMode: boolean): void;
+  (e: "update:dark", darkMode: boolean): void;
 }
 
 const emit = defineEmits<Emits>();
@@ -30,8 +30,8 @@ const darkMode = computed({
     return props.dark;
   },
   set(newValue: boolean) {
-    emit('update:dark', newValue);
-  }
+    emit("update:dark", newValue);
+  },
 });
 
 function handleSwitch() {

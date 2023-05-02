@@ -35,23 +35,23 @@
   </n-scrollbar>
 </template>
 <script lang="ts" setup>
-defineOptions({ name: 'MessageList' });
+defineOptions({ name: "MessageList" });
 
 interface Props {
   list?: App.MessageList[];
 }
 
 withDefaults(defineProps<Props>(), {
-  list: () => []
+  list: () => [],
 });
 
 interface Emits {
-  (e: 'read', val: number): void;
+  (e: "read", val: number): void;
 }
 
 const emit = defineEmits<Emits>();
 
 function handleRead(index: number) {
-  emit('read', index);
+  emit("read", index);
 }
 </script>

@@ -16,9 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import { useAuthStore } from '@/store';
+import { useAuthStore } from "@/store";
 
-defineOptions({ name: 'DashboardWorkbenchHeader' });
+defineOptions({ name: "DashboardWorkbenchHeader" });
 
 const auth = useAuthStore();
 
@@ -31,19 +31,19 @@ interface StatisticData {
 const statisticData: StatisticData[] = [
   {
     id: 0,
-    label: '项目数',
-    value: '25'
+    label: "项目数",
+    value: "25",
   },
   {
     id: 1,
-    label: '待办',
-    value: '4/16'
+    label: "待办",
+    value: "4/16",
   },
   {
     id: 2,
-    label: '消息',
-    value: '12'
-  }
+    label: "消息",
+    value: "12",
+  },
 ];
 </script>
 

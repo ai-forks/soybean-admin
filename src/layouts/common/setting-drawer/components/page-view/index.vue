@@ -35,10 +35,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useThemeStore } from '@/store';
-import SettingMenu from '../setting-menu/index.vue';
+import { useThemeStore } from "@/store";
+import SettingMenu from "../setting-menu/index.vue";
 
-defineOptions({ name: 'PageView' });
+defineOptions({ name: "PageView" });
 
 const theme = useThemeStore();
 </script>

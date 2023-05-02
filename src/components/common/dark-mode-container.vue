@@ -8,14 +8,14 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({ name: 'DarkModeContainer' });
+defineOptions({ name: "DarkModeContainer" });
 
 interface Props {
   inverted?: boolean;
 }
 
 withDefaults(defineProps<Props>(), {
-  inverted: false
+  inverted: false,
 });
 </script>
 

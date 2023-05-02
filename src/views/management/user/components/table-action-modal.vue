@@ -32,10 +32,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, reactive, watch } from 'vue';
-import type { FormInst, FormItemRule } from 'naive-ui';
-import { genderOptions, userStatusOptions } from '@/constants';
-import { formRules, createRequiredFormRule } from '@/utils';
+import { ref, computed, reactive, watch } from "vue";
+import type { FormInst, FormItemRule } from "naive-ui";
+import { genderOptions, userStatusOptions } from "@/constants";
+import { formRules, createRequiredFormRule } from "@/utils";
 
 export interface Props {
   /** 弹窗可见性 */
@@ -45,22 +45,22 @@ export interface Props {
    * add: 新增
    * edit: 编辑
    */
-  type?: 'add' | 'edit';
+  type?: "add" | "edit";
   /** 编辑的表格行数据 */
   editData?: UserManagement.User | null;
 }
 
-export type ModalType = NonNullable<Props['type']>;
+export type ModalType = NonNullable<Props["type"]>;
 
-defineOptions({ name: 'TableActionModal' });
+defineOptions({ name: "TableActionModal" });
 
 const props = withDefaults(defineProps<Props>(), {
-  type: 'add',
-  editData: null
+  type: "add",
+  editData: null,
 });
 
 interface Emits {
-  (e: 'update:visible', visible: boolean): void;
+  (e: "update:visible", visible: boolean): void;
 }
 
 const emit = defineEmits<Emits>();
@@ -70,8 +70,8 @@ const modalVisible = computed({
     return props.visible;
   },
   set(visible) {
-    emit('update:visible', visible);
-  }
+    emit("update:visible", visible);
+  },
 });
 const closeModal = () => {
   modalVisible.value = false;
@@ -79,35 +79,35 @@ const closeModal = () => {
 
 const title = computed(() => {
   const titles: Record<ModalType, string> = {
-    add: '添加用户',
-    edit: '编辑用户'
+    add: "添加用户",
+    edit: "编辑用户",
   };
   return titles[props.type];
 });
 
 const formRef = ref<HTMLElement & FormInst>();
 
-type FormModel = Pick<UserManagement.User, 'userName' | 'age' | 'gender' | 'phone' | 'email' | 'userStatus'>;
+type FormModel = Pick<UserManagement.User, "userName" | "age" | "gender" | "phone" | "email" | "userStatus">;
 
 const formModel = reactive<FormModel>(createDefaultFormModel());
 
 const rules: Record<keyof FormModel, FormItemRule | FormItemRule[]> = {
-  userName: createRequiredFormRule('请输入用户名'),
-  age: createRequiredFormRule('请输入年龄'),
-  gender: createRequiredFormRule('请选择性别'),
+  userName: createRequiredFormRule("请输入用户名"),
+  age: createRequiredFormRule("请输入年龄"),
+  gender: createRequiredFormRule("请选择性别"),
   phone: formRules.phone,
   email: formRules.email,
-  userStatus: createRequiredFormRule('请选择用户状态')
+  userStatus: createRequiredFormRule("请选择用户状态"),
 };
 
 function createDefaultFormModel(): FormModel {
   return {
-    userName: '',
+    userName: "",
     age: null,
     gender: null,
-    phone: '',
+    phone: "",
     email: null,
-    userStatus: null
+    userStatus: null,
   };
 }
 
@@ -125,7 +125,7 @@ function handleUpdateFormModelByModalType() {
       if (props.editData) {
         handleUpdateFormModel(props.editData);
       }
-    }
+    },
   };
 
   handlers[props.type]();
@@ -133,17 +133,17 @@ function handleUpdateFormModelByModalType() {
 
 async function handleSubmit() {
   await formRef.value?.validate();
-  window.$message?.success('新增成功!');
+  window.$message?.success("新增成功!");
   closeModal();
 }
 
 watch(
   () => props.visible,
-  newValue => {
+  (newValue) => {
     if (newValue) {
       handleUpdateFormModelByModalType();
     }
-  }
+  },
 );
 </script>
 

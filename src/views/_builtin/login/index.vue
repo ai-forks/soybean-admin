@@ -26,13 +26,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { Component } from 'vue';
-import { loginModuleLabels } from '@/constants';
-import { useThemeStore } from '@/store';
-import { useAppInfo } from '@/composables';
-import { getColorPalette, mixColor } from '@/utils';
-import { BindWechat, CodeLogin, LoginBg, PwdLogin, Register, ResetPwd } from './components';
+import { computed } from "vue";
+import type { Component } from "vue";
+import { loginModuleLabels } from "@/constants";
+import { useThemeStore } from "@/store";
+import { useAppInfo } from "@/composables";
+import { getColorPalette, mixColor } from "@/utils";
+import { BindWechat, CodeLogin, LoginBg, PwdLogin, Register, ResetPwd } from "./components";
 
 interface Props {
   /** 登录模块分类 */
@@ -51,16 +51,16 @@ interface LoginModule {
 }
 
 const modules: LoginModule[] = [
-  { key: 'pwd-login', label: loginModuleLabels['pwd-login'], component: PwdLogin },
-  { key: 'code-login', label: loginModuleLabels['code-login'], component: CodeLogin },
-  { key: 'register', label: loginModuleLabels.register, component: Register },
-  { key: 'reset-pwd', label: loginModuleLabels['reset-pwd'], component: ResetPwd },
-  { key: 'bind-wechat', label: loginModuleLabels['bind-wechat'], component: BindWechat }
+  { key: "pwd-login", label: loginModuleLabels["pwd-login"], component: PwdLogin },
+  { key: "code-login", label: loginModuleLabels["code-login"], component: CodeLogin },
+  { key: "register", label: loginModuleLabels.register, component: Register },
+  { key: "reset-pwd", label: loginModuleLabels["reset-pwd"], component: ResetPwd },
+  { key: "bind-wechat", label: loginModuleLabels["bind-wechat"], component: BindWechat },
 ];
 
 const activeModule = computed(() => {
   const active: LoginModule = { ...modules[0] };
-  const findItem = modules.find(item => item.key === props.module);
+  const findItem = modules.find((item) => item.key === props.module);
   if (findItem) {
     Object.assign(active, findItem);
   }
@@ -70,7 +70,7 @@ const activeModule = computed(() => {
 const bgThemeColor = computed(() => (theme.darkMode ? getColorPalette(theme.themeColor, 7) : theme.themeColor));
 
 const bgColor = computed(() => {
-  const COLOR_WHITE = '#ffffff';
+  const COLOR_WHITE = "#ffffff";
   const ratio = theme.darkMode ? 0.5 : 0.2;
   return mixColor(COLOR_WHITE, theme.themeColor, ratio);
 });

@@ -1,4 +1,4 @@
-import { decrypto, encrypto } from '../crypto';
+import { decrypto, encrypto } from "../crypto";
 
 function createSessionStorage<T extends StorageInterface.Session = StorageInterface.Session>() {
   function set<K extends keyof T>(key: K, value: T[K]) {
@@ -28,7 +28,7 @@ function createSessionStorage<T extends StorageInterface.Session = StorageInterf
     set,
     get,
     remove,
-    clear
+    clear,
   };
 }
 

@@ -6,16 +6,16 @@
       class="pl-8px text-16px font-bold text-primary transition duration-300 ease-in-out"
       @click="toggleLocal"
     >
-      {{ t('message.system.title') }}
+      {{ t("message.system.title") }}
     </h2>
   </router-link>
 </template>
 
 <script setup lang="ts">
-import { routePath } from '@/router';
-import { t, setLocale } from '@/locales';
+import { routePath } from "@/router";
+import { t, setLocale } from "@/locales";
 
-defineOptions({ name: 'GlobalLogo' });
+defineOptions({ name: "GlobalLogo" });
 
 interface Props {
   /** 显示名字 */
@@ -24,12 +24,12 @@ interface Props {
 
 defineProps<Props>();
 
-const routeHomePath = routePath('root');
+const routeHomePath = routePath("root");
 
 let flag = true;
 function toggleLocal() {
   flag = !flag;
-  setLocale(flag ? 'en' : 'zh-CN');
+  setLocale(flag ? "en" : "zh-CN");
 }
 </script>
 

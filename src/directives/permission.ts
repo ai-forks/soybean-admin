@@ -1,5 +1,5 @@
-import type { App, Directive } from 'vue';
-import { usePermission } from '@/composables';
+import type { App, Directive } from "vue";
+import { usePermission } from "@/composables";
 
 export default function setupPermissionDirective(app: App) {
   const { hasPermission } = usePermission();
@@ -19,8 +19,8 @@ export default function setupPermissionDirective(app: App) {
     },
     beforeUpdate(el, binding) {
       updateElVisible(el, binding.value);
-    }
+    },
   };
 
-  app.directive('permission', permissionDirective);
+  app.directive("permission", permissionDirective);
 }

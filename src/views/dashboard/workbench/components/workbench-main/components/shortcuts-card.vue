@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({ name: 'DashboardWorkbenchMainShortcutsCard' });
+defineOptions({ name: "DashboardWorkbenchMainShortcutsCard" });
 
 interface Props {
   /** 快捷操作名称 */

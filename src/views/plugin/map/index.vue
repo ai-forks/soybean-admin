@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Component } from 'vue';
-import { BaiduMap, GaodeMap, TencentMap } from './components';
+import type { Component } from "vue";
+import { BaiduMap, GaodeMap, TencentMap } from "./components";
 
 interface Map {
   id: string;
@@ -21,9 +21,9 @@ interface Map {
 }
 
 const maps: Map[] = [
-  { id: 'gaode', label: '高德地图', component: GaodeMap },
-  { id: 'tencent', label: '腾讯地图', component: TencentMap },
-  { id: 'baidu', label: '百度地图', component: BaiduMap }
+  { id: "gaode", label: "高德地图", component: GaodeMap },
+  { id: "tencent", label: "腾讯地图", component: TencentMap },
+  { id: "baidu", label: "百度地图", component: BaiduMap },
 ];
 </script>
 

@@ -15,11 +15,11 @@
 </template>
 
 <script setup lang="tsx">
-import { onMounted, ref } from 'vue';
-import { NSpace, NButton, NPopconfirm } from 'naive-ui';
-import type { DataTableColumn } from 'naive-ui';
-import { useLoadingEmpty } from '@/hooks';
-import { getRandomInteger } from '@/utils';
+import { onMounted, ref } from "vue";
+import { NSpace, NButton, NPopconfirm } from "naive-ui";
+import type { DataTableColumn } from "naive-ui";
+import { useLoadingEmpty } from "@/hooks";
+import { getRandomInteger } from "@/utils";
 
 interface DataSource {
   name: string;
@@ -31,40 +31,40 @@ const { loading, startLoading, endLoading, empty, setEmpty } = useLoadingEmpty()
 
 const columns: DataTableColumn[] = [
   {
-    title: 'Name',
-    key: 'name',
-    align: 'center'
+    title: "Name",
+    key: "name",
+    align: "center",
   },
   {
-    title: 'Age',
-    key: 'age',
-    align: 'center'
+    title: "Age",
+    key: "age",
+    align: "center",
   },
   {
-    title: 'Address',
-    key: 'address',
-    align: 'center'
+    title: "Address",
+    key: "address",
+    align: "center",
   },
   {
-    key: 'action',
-    title: 'Action',
-    align: 'center',
+    key: "action",
+    title: "Action",
+    align: "center",
     render: () => {
       return (
-        <NSpace justify={'center'}>
-          <NButton size={'small'} onClick={() => {}}>
+        <NSpace justify={"center"}>
+          <NButton size={"small"} onClick={() => {}}>
             编辑
           </NButton>
           <NPopconfirm onPositiveClick={() => {}}>
             {{
-              default: () => '确认删除',
-              trigger: () => <NButton size={'small'}>删除</NButton>
+              default: () => "确认删除",
+              trigger: () => <NButton size={"small"}>删除</NButton>,
             }}
           </NPopconfirm>
         </NSpace>
       );
-    }
-  }
+    },
+  },
 ];
 
 const dataSource = ref<DataSource[]>([]);
@@ -76,7 +76,7 @@ function createDataSource(): DataSource[] {
       return {
         name: `Name${index}`,
         age: getRandomInteger(30, 20),
-        address: '中国'
+        address: "中国",
       };
     });
 }

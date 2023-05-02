@@ -6,9 +6,9 @@
 </template>
 
 <script lang="ts" setup>
-import { useAppStore, useThemeStore } from '@/store';
+import { useAppStore, useThemeStore } from "@/store";
 
-defineOptions({ name: 'MenuCollapse' });
+defineOptions({ name: "MenuCollapse" });
 
 const app = useAppStore();
 const theme = useThemeStore();

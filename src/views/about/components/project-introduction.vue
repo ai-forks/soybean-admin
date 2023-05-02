@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-defineOptions({ name: 'ProjectIntroduction' });
+defineOptions({ name: "ProjectIntroduction" });
 </script>
 
 <style scoped></style>

@@ -18,9 +18,9 @@
 </template>
 
 <script setup lang="ts">
-import { GradientBg } from './components';
+import { GradientBg } from "./components";
 
-defineOptions({ name: 'DashboardAnalysisDataCard' });
+defineOptions({ name: "DashboardAnalysisDataCard" });
 
 interface CardData {
   id: string;
@@ -33,37 +33,37 @@ interface CardData {
 
 const cardData: CardData[] = [
   {
-    id: 'visit',
-    title: '访问量',
+    id: "visit",
+    title: "访问量",
     value: 1000000,
-    unit: '',
-    colors: ['#ec4786', '#b955a4'],
-    icon: 'ant-design:bar-chart-outlined'
+    unit: "",
+    colors: ["#ec4786", "#b955a4"],
+    icon: "ant-design:bar-chart-outlined",
   },
   {
-    id: 'amount',
-    title: '成交额',
+    id: "amount",
+    title: "成交额",
     value: 234567.89,
-    unit: '$',
-    colors: ['#865ec0', '#5144b4'],
-    icon: 'ant-design:money-collect-outlined'
+    unit: "$",
+    colors: ["#865ec0", "#5144b4"],
+    icon: "ant-design:money-collect-outlined",
   },
   {
-    id: 'download',
-    title: '下载数',
+    id: "download",
+    title: "下载数",
     value: 666666,
-    unit: '',
-    colors: ['#56cdf3', '#719de3'],
-    icon: 'carbon:document-download'
+    unit: "",
+    colors: ["#56cdf3", "#719de3"],
+    icon: "carbon:document-download",
   },
   {
-    id: 'trade',
-    title: '成交数',
+    id: "trade",
+    title: "成交数",
     value: 999999,
-    unit: '',
-    colors: ['#fcbc25', '#f68057'],
-    icon: 'ant-design:trademark-circle-outlined'
-  }
+    unit: "",
+    colors: ["#fcbc25", "#f68057"],
+    icon: "ant-design:trademark-circle-outlined",
+  },
 ];
 </script>
 

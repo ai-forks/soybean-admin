@@ -1,4 +1,4 @@
-import useBoolean from './use-boolean';
+import useBoolean from "./use-boolean";
 
 export default function useLoadingEmpty(initLoading = false, initEmpty = false) {
   const { bool: loading, setTrue: startLoading, setFalse: endLoading } = useBoolean(initLoading);
@@ -9,6 +9,6 @@ export default function useLoadingEmpty(initLoading = false, initEmpty = false) 
     startLoading,
     endLoading,
     empty,
-    setEmpty
+    setEmpty,
   };
 }

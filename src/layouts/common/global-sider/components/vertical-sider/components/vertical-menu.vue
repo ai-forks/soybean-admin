@@ -16,14 +16,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import type { MenuOption } from 'naive-ui';
-import { useAppStore, useRouteStore, useThemeStore } from '@/store';
-import { useRouterPush } from '@/composables';
-import { getActiveKeyPathsOfMenus } from '@/utils';
+import { computed, ref, watch } from "vue";
+import { useRoute } from "vue-router";
+import type { MenuOption } from "naive-ui";
+import { useAppStore, useRouteStore, useThemeStore } from "@/store";
+import { useRouterPush } from "@/composables";
+import { getActiveKeyPathsOfMenus } from "@/utils";
 
-defineOptions({ name: 'VerticalMenu' });
+defineOptions({ name: "VerticalMenu" });
 
 const route = useRoute();
 const app = useAppStore();
@@ -32,7 +32,6 @@ const routeStore = useRouteStore();
 const { routerPush } = useRouterPush();
 
 const menus = computed(() => routeStore.menus as App.GlobalMenuOption[]);
-
 const activeKey = computed(() => (route.meta?.activeMenu ? route.meta.activeMenu : route.name) as string);
 const expandedKeys = ref<string[]>([]);
 
@@ -50,7 +49,7 @@ watch(
   () => {
     expandedKeys.value = getActiveKeyPathsOfMenus(activeKey.value, menus.value);
   },
-  { immediate: true }
+  { immediate: true },
 );
 </script>
 

@@ -35,7 +35,7 @@ declare namespace ApiUserManagement {
      * - 0: 女
      * - 1: 男
      */
-    gender: '0' | '1' | null;
+    gender: "0" | "1" | null;
     /** 用户手机号码 */
     phone: string;
     /** 用户邮箱 */
@@ -47,6 +47,6 @@ declare namespace ApiUserManagement {
      * - 3: 冻结
      * - 4: 软删除
      */
-    userStatus: '1' | '2' | '3' | '4' | null;
+    userStatus: "1" | "2" | "3" | "4" | null;
   }
 }

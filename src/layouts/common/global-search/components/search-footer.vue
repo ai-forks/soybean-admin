@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-defineOptions({ name: 'SearchFooter' });
+defineOptions({ name: "SearchFooter" });
 </script>
 
 <style lang="scss" scoped>

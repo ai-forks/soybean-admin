@@ -5,7 +5,7 @@ export function adapterOfFetchUserList(data: ApiUserManagement.User[] | null): U
     const user: UserManagement.User = {
       index: index + 1,
       key: item.id,
-      ...item
+      ...item,
     };
 
     return user;

@@ -4,15 +4,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useThemeStore } from '@/store';
-import { VerticalMixSider, VerticalSider } from './components';
+import { computed } from "vue";
+import { useThemeStore } from "@/store";
+import { VerticalMixSider, VerticalSider } from "./components";
 
-defineOptions({ name: 'GlobalSider' });
+defineOptions({ name: "GlobalSider" });
 
 const theme = useThemeStore();
 
-const isVerticalMix = computed(() => theme.layout.mode === 'vertical-mix');
+const isVerticalMix = computed(() => theme.layout.mode === "vertical-mix");
 </script>
 
 <style scoped>

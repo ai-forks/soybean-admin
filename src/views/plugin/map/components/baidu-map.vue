@@ -3,11 +3,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
-import { useScriptTag } from '@vueuse/core';
-import { BAIDU_MAP_SDK_URL } from '@/config';
+import { onMounted, ref } from "vue";
+import { useScriptTag } from "@vueuse/core";
+import { BAIDU_MAP_SDK_URL } from "@/config";
 
-defineOptions({ name: 'BaiduMap' });
+defineOptions({ name: "BaiduMap" });
 
 const { load } = useScriptTag(BAIDU_MAP_SDK_URL);
 

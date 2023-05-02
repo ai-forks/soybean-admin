@@ -10,10 +10,10 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue';
-import Vditor from 'vditor';
-import 'vditor/dist/index.css';
-import { useThemeStore } from '@/store';
+import { onMounted, onUnmounted, ref, watch } from "vue";
+import Vditor from "vditor";
+import "vditor/dist/index.css";
+import { useThemeStore } from "@/store";
 
 const theme = useThemeStore();
 
@@ -24,18 +24,18 @@ function renderVditor() {
   if (!domRef.value) return;
   vditor.value = new Vditor(domRef.value, {
     minHeight: 400,
-    theme: theme.darkMode ? 'dark' : 'classic',
-    icon: 'material',
-    cache: { enable: false }
+    theme: theme.darkMode ? "dark" : "classic",
+    icon: "material",
+    cache: { enable: false },
   });
 }
 
 const stopHandle = watch(
   () => theme.darkMode,
-  newValue => {
-    const themeMode = newValue ? 'dark' : 'classic';
+  (newValue) => {
+    const themeMode = newValue ? "dark" : "classic";
     vditor.value?.setTheme(themeMode);
-  }
+  },
 );
 
 onMounted(() => {

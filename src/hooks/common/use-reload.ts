@@ -1,5 +1,5 @@
-import { nextTick } from 'vue';
-import useBoolean from './use-boolean';
+import { nextTick } from "vue";
+import useBoolean from "./use-boolean";
 
 /** 重载 */
 export default function useReload() {
@@ -23,6 +23,6 @@ export default function useReload() {
 
   return {
     reloadFlag,
-    handleReload
+    handleReload,
   };
 }

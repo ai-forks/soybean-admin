@@ -1,7 +1,7 @@
-import { colord, extend } from 'colord';
-import namesPlugin from 'colord/plugins/names';
-import mixPlugin from 'colord/plugins/mix';
-import type { AnyColor, HsvColor } from 'colord';
+import { colord, extend } from "colord";
+import namesPlugin from "colord/plugins/names";
+import mixPlugin from "colord/plugins/mix";
+import type { AnyColor, HsvColor } from "colord";
 
 extend([namesPlugin, mixPlugin]);
 
@@ -36,7 +36,7 @@ export function getColorPalette(color: AnyColor, index: ColorIndex): string {
   const transformColor = colord(color);
 
   if (!transformColor.isValid()) {
-    throw Error('invalid input color value');
+    throw Error("invalid input color value");
   }
 
   if (index === 6) {
@@ -50,7 +50,7 @@ export function getColorPalette(color: AnyColor, index: ColorIndex): string {
   const newHsv: HsvColor = {
     h: getHue(hsv, i, isLight),
     s: getSaturation(hsv, i, isLight),
-    v: getValue(hsv, i, isLight)
+    v: getValue(hsv, i, isLight),
   };
 
   return colord(newHsv).toHex();
@@ -67,7 +67,7 @@ const darkColorMap = [
   { index: 4, opacity: 0.9 },
   { index: 3, opacity: 0.95 },
   { index: 2, opacity: 0.97 },
-  { index: 1, opacity: 0.98 }
+  { index: 1, opacity: 0.98 },
 ];
 
 /**
@@ -76,10 +76,10 @@ const darkColorMap = [
  * @param darkTheme - 暗黑主题的调色板颜色
  * @param darkThemeMixColor - 暗黑主题的混合颜色，默认 #141414
  */
-export function getColorPalettes(color: AnyColor, darkTheme = false, darkThemeMixColor = '#141414'): string[] {
+export function getColorPalettes(color: AnyColor, darkTheme = false, darkThemeMixColor = "#141414"): string[] {
   const indexs: ColorIndex[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  const patterns = indexs.map(index => getColorPalette(color, index));
+  const patterns = indexs.map((index) => getColorPalette(color, index));
 
   if (darkTheme) {
     const darkPatterns = darkColorMap.map(({ index, opacity }) => {
@@ -88,7 +88,7 @@ export function getColorPalettes(color: AnyColor, darkTheme = false, darkThemeMi
       return darkColor;
     });
 
-    return darkPatterns.map(item => colord(item).toHex());
+    return darkPatterns.map((item) => colord(item).toHex());
   }
 
   return patterns;
@@ -211,7 +211,7 @@ export function mixColor(firstColor: string, secondColor: string, ratio: number)
  * @param color - 颜色
  */
 export function isWhiteColor(color: string) {
-  return colord(color).isEqual('#ffffff');
+  return colord(color).isEqual("#ffffff");
 }
 
 /**

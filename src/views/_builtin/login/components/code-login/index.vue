@@ -35,12 +35,12 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-import type { FormInst } from 'naive-ui';
-import { useAuthStore } from '@/store';
-import { useRouterPush } from '@/composables';
-import { useSmsCode } from '@/hooks';
-import { formRules, getImgCodeRule } from '@/utils';
+import { reactive, ref } from "vue";
+import type { FormInst } from "naive-ui";
+import { useAuthStore } from "@/store";
+import { useRouterPush } from "@/composables";
+import { useSmsCode } from "@/hooks";
+import { formRules, getImgCodeRule } from "@/utils";
 
 const auth = useAuthStore();
 const { toLoginModule } = useRouterPush();
@@ -49,17 +49,17 @@ const { label, isCounting, loading: smsLoading, getSmsCode } = useSmsCode();
 const formRef = ref<HTMLElement & FormInst>();
 
 const model = reactive({
-  phone: '',
-  code: '',
-  imgCode: ''
+  phone: "",
+  code: "",
+  imgCode: "",
 });
 
-const imgCode = ref('');
+const imgCode = ref("");
 
 const rules = {
   phone: formRules.phone,
   code: formRules.code,
-  imgCode: getImgCodeRule(imgCode)
+  imgCode: getImgCodeRule(imgCode),
 };
 
 function handleSmsCode() {
@@ -68,7 +68,7 @@ function handleSmsCode() {
 
 async function handleSubmit() {
   await formRef.value?.validate();
-  window.$message?.success('验证成功!');
+  window.$message?.success("验证成功!");
 }
 </script>
 

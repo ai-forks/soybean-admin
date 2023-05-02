@@ -47,6 +47,7 @@ declare namespace PageRoute {
     | 'function_tab-detail'
     | 'function_tab-multi-detail'
     | 'function_tab'
+    | 'home'
     | 'management'
     | 'management_auth'
     | 'management_role'
@@ -69,7 +70,16 @@ declare namespace PageRoute {
     | 'plugin_map'
     | 'plugin_print'
     | 'plugin_swiper'
-    | 'plugin_video';
+    | 'plugin_video'
+    | 'video'
+    | 'video_anime'
+    | 'video_documentary'
+    | 'video_home'
+    | 'video_movie'
+    | 'video_search'
+    | 'video_sport'
+    | 'video_tv'
+    | 'video_variety';
 
   /**
    * last degree route key, which has the page file
@@ -102,6 +112,7 @@ declare namespace PageRoute {
     | 'function_tab-detail'
     | 'function_tab-multi-detail'
     | 'function_tab'
+    | 'home'
     | 'management_auth'
     | 'management_role'
     | 'management_route'
@@ -118,5 +129,13 @@ declare namespace PageRoute {
     | 'plugin_print'
     | 'plugin_swiper'
     | 'plugin_video'
+    | 'video_anime'
+    | 'video_documentary'
+    | 'video_home'
+    | 'video_movie'
+    | 'video_search'
+    | 'video_sport'
+    | 'video_tv'
+    | 'video_variety'
   >;
 }

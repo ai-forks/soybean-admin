@@ -1,4 +1,4 @@
-import { useIconRender } from '@/composables';
+import { useIconRender } from "@/composables";
 
 /**
  * 将权限路由转换成菜单
@@ -6,7 +6,7 @@ import { useIconRender } from '@/composables';
  */
 export function transformAuthRouteToMenu(routes: AuthRoute.Route[]): App.GlobalMenuOption[] {
   const globalMenu: App.GlobalMenuOption[] = [];
-  routes.forEach(route => {
+  routes.forEach((route) => {
     const { name, path, meta } = route;
     const routeName = name as string;
     let menuChildren: App.GlobalMenuOption[] | undefined;
@@ -18,11 +18,11 @@ export function transformAuthRouteToMenu(routes: AuthRoute.Route[]): App.GlobalM
         key: routeName,
         label: meta.title,
         routeName,
-        routePath: path
+        routePath: path,
       },
       icon: meta.icon,
       localIcon: meta.localIcon,
-      children: menuChildren
+      children: menuChildren,
     });
 
     if (!hideInMenu(route)) {
@@ -39,7 +39,7 @@ export function transformAuthRouteToMenu(routes: AuthRoute.Route[]): App.GlobalM
  * @param menus - 菜单数据
  */
 export function getActiveKeyPathsOfMenus(activeKey: string, menus: App.GlobalMenuOption[]) {
-  const keys = menus.map(menu => getActiveKeyPathsOfMenu(activeKey, menu)).flat(1);
+  const keys = menus.map((menu) => getActiveKeyPathsOfMenu(activeKey, menu)).flat(1);
   return keys;
 }
 
@@ -49,7 +49,7 @@ function getActiveKeyPathsOfMenu(activeKey: string, menu: App.GlobalMenuOption) 
     keys.push(menu.routeName);
   }
   if (menu.children) {
-    keys.push(...menu.children.map(item => getActiveKeyPathsOfMenu(activeKey, item as App.GlobalMenuOption)).flat(1));
+    keys.push(...menu.children.map((item) => getActiveKeyPathsOfMenu(activeKey, item as App.GlobalMenuOption)).flat(1));
   }
   return keys;
 }

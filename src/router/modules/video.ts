@@ -1,0 +1,95 @@
+const video: AuthRoute.Route[] = [
+  {
+    name: "video_home",
+    path: "/video/home",
+    component: "self",
+    meta: {
+      title: "首页",
+      requiresAuth: false,
+      keepAlive: true,
+      singleLayout: "basic",
+      icon: "mdi:video-2d",
+      order: 10,
+    },
+  },
+  {
+    name: "video_movie",
+    path: "/video/movie",
+    component: "self",
+    meta: {
+      title: "menu.movie",
+      requiresAuth: false,
+      keepAlive: true,
+      singleLayout: "basic",
+      icon: "mdi:video-input-svideo",
+      order: 10,
+    },
+  },
+  {
+    name: "video_tv",
+    path: "/video/tv",
+    component: "self",
+    meta: {
+      title: "电视剧",
+      requiresAuth: false,
+      keepAlive: true,
+      singleLayout: "basic",
+      icon: "mdi:youtube-tv",
+      order: 10,
+    },
+  },
+  {
+    name: "video_anime",
+    path: "/video/anime",
+    component: "self",
+    meta: {
+      title: "动漫",
+      requiresAuth: false,
+      keepAlive: true,
+      singleLayout: "basic",
+      icon: "mdi:atv",
+      order: 10,
+    },
+  },
+  {
+    name: "video_variety",
+    path: "/video/variety",
+    component: "self",
+    meta: {
+      title: "综艺",
+      requiresAuth: false,
+      keepAlive: true,
+      singleLayout: "basic",
+      icon: "mdi:eye",
+      order: 10,
+    },
+  },
+  {
+    name: "video_sport",
+    path: "/video/sport",
+    component: "self",
+    meta: {
+      title: "体育",
+      requiresAuth: false,
+      keepAlive: true,
+      singleLayout: "basic",
+      icon: "mdi:basketball",
+      order: 10,
+    },
+  },,
+  {
+    name: "video_documentary",
+    path: "/video/documentary",
+    component: "self",
+    meta: {
+      title: "纪录片",
+      requiresAuth: false,
+      keepAlive: true,
+      singleLayout: "basic",
+      icon: "mdi:video-vintage",
+      order: 10,
+    },
+  },
+];
+
+export default video;

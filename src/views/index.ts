@@ -29,6 +29,7 @@ export const views: Record<
   'function_tab-detail': () => import('./function/tab-detail/index.vue'),
   'function_tab-multi-detail': () => import('./function/tab-multi-detail/index.vue'),
   function_tab: () => import('./function/tab/index.vue'),
+  home: () => import('./home/index.vue'),
   management_auth: () => import('./management/auth/index.vue'),
   management_role: () => import('./management/role/index.vue'),
   management_route: () => import('./management/route/index.vue'),
@@ -44,5 +45,13 @@ export const views: Record<
   plugin_map: () => import('./plugin/map/index.vue'),
   plugin_print: () => import('./plugin/print/index.vue'),
   plugin_swiper: () => import('./plugin/swiper/index.vue'),
-  plugin_video: () => import('./plugin/video/index.vue')
+  plugin_video: () => import('./plugin/video/index.vue'),
+  video_anime: () => import('./video/anime/index.vue'),
+  video_documentary: () => import('./video/documentary/index.vue'),
+  video_home: () => import('./video/home/index.vue'),
+  video_movie: () => import('./video/movie/index.vue'),
+  video_search: () => import('./video/search/index.vue'),
+  video_sport: () => import('./video/sport/index.vue'),
+  video_tv: () => import('./video/tv/index.vue'),
+  video_variety: () => import('./video/variety/index.vue')
 };

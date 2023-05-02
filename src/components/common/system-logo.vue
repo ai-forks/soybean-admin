@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts" setup>
-defineOptions({ name: 'SystemLogo' });
+defineOptions({ name: "SystemLogo" });
 
 interface Props {
   /** logo是否填充 */
@@ -12,7 +12,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  fill: false
+  fill: false,
 });
 </script>
 

@@ -12,11 +12,11 @@
 </template>
 
 <script lang="ts" setup>
-import { routeName } from '@/router';
+import { routeName } from "@/router";
 
-defineOptions({ name: 'ExceptionBase' });
+defineOptions({ name: "ExceptionBase" });
 
-type ExceptionType = '403' | '404' | '500';
+type ExceptionType = "403" | "404" | "500";
 
 interface Props {
   /** 异常类型 403 404 500 */
@@ -25,7 +25,7 @@ interface Props {
 
 defineProps<Props>();
 
-const routeHomePath = routeName('root');
+const routeHomePath = routeName("root");
 </script>
 
 <style scoped></style>

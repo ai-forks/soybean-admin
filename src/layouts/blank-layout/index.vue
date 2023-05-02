@@ -3,9 +3,9 @@
 </template>
 
 <script setup lang="ts">
-import { GlobalContent } from '../common';
+import { GlobalContent } from "../common";
 
-defineOptions({ name: 'BlankLayout' });
+defineOptions({ name: "BlankLayout" });
 </script>
 
 <style scoped></style>

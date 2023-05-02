@@ -74,10 +74,10 @@
 </template>
 
 <script lang="ts" setup>
-import { useThemeStore } from '@/store';
-import SettingMenu from '../setting-menu/index.vue';
+import { useThemeStore } from "@/store";
+import SettingMenu from "../setting-menu/index.vue";
 
-defineOptions({ name: 'PageFunc' });
+defineOptions({ name: "PageFunc" });
 
 const theme = useThemeStore();
 </script>

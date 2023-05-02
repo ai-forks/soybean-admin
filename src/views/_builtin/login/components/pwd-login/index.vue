@@ -23,7 +23,7 @@
       </n-button>
       <div class="flex-y-center justify-between">
         <n-button class="flex-1" :block="true" @click="toLoginModule('code-login')">
-          {{ loginModuleLabels['code-login'] }}
+          {{ loginModuleLabels["code-login"] }}
         </n-button>
         <div class="w-12px"></div>
         <n-button class="flex-1" :block="true" @click="toLoginModule('register')">
@@ -36,13 +36,13 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-import type { FormInst, FormRules } from 'naive-ui';
-import { loginModuleLabels } from '@/constants';
-import { useAuthStore } from '@/store';
-import { useRouterPush } from '@/composables';
-import { formRules } from '@/utils';
-import { OtherAccount } from './components';
+import { reactive, ref } from "vue";
+import type { FormInst, FormRules } from "naive-ui";
+import { loginModuleLabels } from "@/constants";
+import { useAuthStore } from "@/store";
+import { useRouterPush } from "@/composables";
+import { formRules } from "@/utils";
+import { OtherAccount } from "./components";
 
 const auth = useAuthStore();
 const { login } = useAuthStore();
@@ -51,12 +51,12 @@ const { toLoginModule } = useRouterPush();
 const formRef = ref<HTMLElement & FormInst>();
 
 const model = reactive({
-  userName: 'Soybean',
-  password: 'soybean123'
+  userName: "Soybean",
+  password: "soybean123",
 });
 
 const rules: FormRules = {
-  password: formRules.pwd
+  password: formRules.pwd,
 };
 
 const rememberMe = ref(false);
