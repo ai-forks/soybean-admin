@@ -76,10 +76,23 @@ const video: AuthRoute.Route[] = [
       icon: "mdi:basketball",
       order: 10,
     },
-  },,
+  },
   {
     name: "video_documentary",
     path: "/video/documentary",
+    component: "self",
+    meta: {
+      title: "纪录片",
+      requiresAuth: false,
+      keepAlive: true,
+      singleLayout: "basic",
+      icon: "mdi:video-vintage",
+      order: 10,
+    },
+  },
+  {
+    name: "video_detail_:id",
+    path: "/video/detail/:id",
     component: "self",
     meta: {
       title: "纪录片",

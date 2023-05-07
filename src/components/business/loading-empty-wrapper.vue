@@ -59,7 +59,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 // 网络状态
-const { bool: network, setBool: setNetwork } = useBoolean(window.navigator.onLine);
+const { bool: network, setBool: setNetwork } = useBoolean(true); //window.navigator.onLine
 const { bool: reloadFlag, setBool: setReload } = useBoolean(true);
 
 // 数据是否为空

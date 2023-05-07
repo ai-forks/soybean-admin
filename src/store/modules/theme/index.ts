@@ -6,7 +6,10 @@ import { getNaiveThemeOverrides, initThemeSettings } from "./helpers";
 type ThemeState = Theme.Setting;
 
 export const useThemeStore = defineStore("theme-store", {
-  state: (): ThemeState => initThemeSettings(),
+  state: (): ThemeState => {
+    let state = initThemeSettings();
+    return state;
+  },
   getters: {
     /** naiveUI的主题配置 */
     naiveThemeOverrides(state) {
@@ -30,14 +33,15 @@ export const useThemeStore = defineStore("theme-store", {
     },
     /** 缓存主题配置 */
     cacheThemeSettings() {
-      const isProd = import.meta.env.PROD;
-      if (isProd) {
-        localStg.set("themeSettings", this.$state);
-      }
+      //const isProd = import.meta.env.PROD;
+      //if (isProd) {
+      localStg.set("themeSettings", this.$state);
+      //}
     },
     /** 设置暗黑模式 */
     setDarkMode(darkMode: boolean) {
       this.darkMode = darkMode;
+      this.cacheThemeSettings();
     },
     /** 设置自动跟随系统主题 */
     setFollowSystemTheme(visible: boolean) {
@@ -52,6 +56,7 @@ export const useThemeStore = defineStore("theme-store", {
     /** 切换/关闭 暗黑模式 */
     toggleDarkMode() {
       this.darkMode = !this.darkMode;
+      this.cacheThemeSettings();
     },
     /** 设置布局最小宽度 */
     setLayoutMinWidth(minWidth: number) {

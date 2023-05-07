@@ -21,7 +21,7 @@
       <global-header v-bind="headerProps" />
     </template>
     <template #tab>
-      <global-tab />
+      <global-tab v-if="!app.inSSR" />
     </template>
     <template #sider>
       <global-sider />
@@ -36,19 +36,25 @@
 </template>
 
 <script setup lang="ts">
-import { AdminLayout } from "@soybeanjs/vue-materials";
+import { ref, defineComponent, onMounted, getCurrentInstance } from "vue";
 import { useAppStore, useThemeStore } from "@/store";
+import { AdminLayout } from "@soybeanjs/vue-materials";
 import { useBasicLayout } from "@/composables";
 import { GlobalContent, GlobalFooter, GlobalHeader, GlobalSider, GlobalTab, SettingDrawer } from "../common";
-
+const initStyle = ref({
+  visibility: "hidden",
+});
 defineOptions({ name: "BasicLayout" });
+
+onMounted(() => {
+  setTimeout(() => {
+    initStyle.value.visibility = "visible";
+  }, 1000);
+});
 
 const app = useAppStore();
 const theme = useThemeStore();
 const { mode, headerProps, siderVisible, siderWidth, siderCollapsedWidth } = useBasicLayout();
-
-app.init();
-
 </script>
 
 <style lang="scss">

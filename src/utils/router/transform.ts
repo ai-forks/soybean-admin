@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from "vue-router";
 import { getLayoutComponent, getViewComponent } from "./component";
+import { window } from "@/adapter";
 
 /**
  * 将权限路由转换成vue路由
@@ -46,7 +47,7 @@ export function transformAuthRouteToVueRoute(item: AuthRoute.Route) {
           Object.assign(itemRoute, { meta: { ...itemRoute.meta, multi: true } });
           delete itemRoute.component;
         } else {
-          window.console.error("多级路由缺少子路由: ", item);
+          console.error("多级路由缺少子路由: ", item);
         }
       },
       self() {
@@ -57,17 +58,17 @@ export function transformAuthRouteToVueRoute(item: AuthRoute.Route) {
       if (item.component) {
         action[item.component]();
       } else {
-        window.console.error("路由组件解析失败: ", item);
+        console.error("路由组件解析失败: ", item);
       }
     } catch {
-      window.console.error("路由组件解析失败: ", item);
+      console.error("路由组件解析失败: ", item);
     }
   }
 
   // 注意：单独路由没有children
   if (isSingleRoute(item)) {
     if (hasChildren(item)) {
-      window.console.error("单独路由不应该有子路由: ", item);
+      console.error("单独路由不应该有子路由: ", item);
     }
 
     // 捕获无效路由的需特殊处理
@@ -103,7 +104,7 @@ export function transformAuthRouteToVueRoute(item: AuthRoute.Route) {
     const redirectPath = (children.find((v) => !v.meta?.multi)?.path || "/") as AuthRoute.RoutePath;
 
     if (redirectPath === "/") {
-      window.console.error("该多级路由没有有效的子路径", item);
+      console.error("该多级路由没有有效的子路径", item);
     }
 
     if (item.component === "multi") {

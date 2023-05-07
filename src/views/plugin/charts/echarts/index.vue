@@ -28,7 +28,7 @@
 import { onUnmounted, ref } from "vue";
 import type { Ref } from "vue";
 import { graphic } from "echarts";
-import { type ECOption, useEcharts } from "@/composables";
+import { type ECOption, useEcharts } from "@/composables/echarts";
 
 const pieOptions = ref<ECOption>({
   legend: {},

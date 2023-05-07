@@ -21,7 +21,7 @@ export function adapter<T extends Service.ServiceAdapter>(
 ): Service.RequestResult<ReturnType<T>> {
   let result: Service.RequestResult | undefined;
 
-  const hasError = args.some((item) => {
+  const hasError = args.some((item: any) => {
     const flag = Boolean(item.error);
     if (flag) {
       result = {

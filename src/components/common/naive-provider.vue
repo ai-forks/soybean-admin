@@ -14,6 +14,10 @@
 <script setup lang="ts">
 import { defineComponent, h } from "vue";
 import { useDialog, useLoadingBar, useMessage, useNotification } from "naive-ui";
+//import { naiveui } from "@/utils/vuehelper";
+//const NLoadingBarProvider = naiveui("NLoadingBarProvider");
+//const NMessageProvider = naiveui("NMessageProvider");
+//const NNotificationProvider = naiveui("NNotificationProvider");
 
 defineOptions({ name: "NaiveProvider" });
 

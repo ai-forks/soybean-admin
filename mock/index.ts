@@ -1,6 +1,7 @@
-import { createProdMockServer } from 'vite-plugin-mock/es/createProdMockServer';
-import api from './api';
+import api from "./api";
 
-export function setupMockServer() {
+export async function setupMockServer() {
+  if (import.meta.env.SSR) return;
+  const { createProdMockServer } = await import("vite-plugin-mock/es/createProdMockServer");
   createProdMockServer(api);
 }

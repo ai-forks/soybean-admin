@@ -12,7 +12,8 @@ export function filterAuthRoutesByUserPermission(routes: AuthRoute.Route[], perm
  * @returns
  */
 export function filterAuthRouteNoAuth(routes: AuthRoute.Route[]) {
-  return <AuthRoute.Route[]>routes.filter((route) => {
+  let list = routes.map((v) => Object.assign({}, v));
+  return <AuthRoute.Route[]>list.filter((route) => {
     if (route.meta.requiresAuth == true) return false;
     if (route.children && route.children.length > 0) route.children = filterAuthRouteNoAuth(route.children);
     if (!route.children || route.children.length < 1) {

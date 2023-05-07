@@ -51,12 +51,12 @@ const { toLoginModule } = useRouterPush();
 const formRef = ref<HTMLElement & FormInst>();
 
 const model = reactive({
-  userName: "Soybean",
-  password: "soybean123",
+  userName: import.meta.env.PROD ? "demo" : "super",
+  password: "123456",
 });
 
 const rules: FormRules = {
-  password: formRules.pwd,
+  password: formRules.loginpwd,
 };
 
 const rememberMe = ref(false);

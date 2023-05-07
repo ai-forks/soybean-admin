@@ -120,6 +120,8 @@ declare namespace Theme {
     footer: Footer;
     /** 页面样式 */
     page: Page;
+    /** 是否在服务端渲染 */
+    inSSR: boolean;
   }
   /** 布局样式 */
   interface Layout {

@@ -1,5 +1,6 @@
 import { getLoginModuleRegExp } from "@/utils";
 //import video from "./video";
+
 /** 根路由: / */
 export const ROOT_ROUTE: AuthRoute.Route = {
   name: "root",

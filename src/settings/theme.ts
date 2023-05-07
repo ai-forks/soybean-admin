@@ -37,6 +37,7 @@ const themeColorList = [
 const defaultThemeSetting: Theme.Setting = {
   darkMode: false,
   followSystemTheme: true,
+  inSSR: import.meta.env.SSR,
   layout: {
     minWidth: 900,
     mode: "vertical",

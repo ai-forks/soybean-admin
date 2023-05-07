@@ -3,7 +3,16 @@ interface StorageData<T> {
   value: T;
   expire: number | null;
 }
-
+const storage = import.meta.env.SSR
+  ? {
+      setItem(key: string, value: string) {},
+      getItem(key: string) {
+        return undefined;
+      },
+      clear() {},
+      removeItem() {},
+    }
+  : globalThis.sessionStorage;
 function createLocalStorage<T extends StorageInterface.Local = StorageInterface.Local>() {
   /** 默认缓存期限为7天 */
   const DEFAULT_CACHE_TIME = 60 * 60 * 24 * 7;
@@ -14,11 +23,11 @@ function createLocalStorage<T extends StorageInterface.Local = StorageInterface.
       expire: expire !== null ? new Date().getTime() + expire * 1000 : null,
     };
     const json = encrypto(storageData);
-    window.localStorage.setItem(key as string, json);
+    storage.setItem(key as string, json);
   }
 
   function get<K extends keyof T>(key: K) {
-    const json = window.localStorage.getItem(key as string);
+    const json = storage.getItem(key as string);
     if (json) {
       let storageData: StorageData<T[K]> | null = null;
       try {
@@ -40,10 +49,10 @@ function createLocalStorage<T extends StorageInterface.Local = StorageInterface.
   }
 
   function remove(key: keyof T) {
-    window.localStorage.removeItem(key as string);
+    storage.removeItem(key as string);
   }
   function clear() {
-    window.localStorage.clear();
+    storage.clear();
   }
 
   return {
@@ -55,3 +64,4 @@ function createLocalStorage<T extends StorageInterface.Local = StorageInterface.
 }
 
 export const localStg = createLocalStorage();
+globalThis.localStg = localStg;

@@ -6,9 +6,9 @@
       <global-breadcrumb v-if="theme.header.crumb.visible && !isMobile" />
     </div>
     <header-menu v-else />
-    <div class="flex justify-end h-full mr-4">
-      <global-search />
+    <div class="flex justify-end h-full mr-4" v-if="!theme.inSSR">
       <!--github-site /-->
+      <global-search />
       <full-screen />
       <theme-mode />
       <locale-switch />
@@ -34,7 +34,7 @@ import {
   SystemMessage,
   ThemeMode,
   UserAvatar,
-  LocaleSwitch
+  LocaleSwitch,
 } from "./components";
 
 defineOptions({ name: "GlobalHeader" });

@@ -1,7 +1,7 @@
 import type { Router } from "vue-router";
 import { useTitle } from "@vueuse/core";
 import { createPermissionGuard } from "./permission";
-
+import { window } from "@/adapter";
 /**
  * 路由守卫函数
  * @param router - 路由实例
@@ -18,5 +18,11 @@ export function createRouterGuard(router: Router) {
     useTitle(to.meta.title);
     // 结束 loadingBar
     window.$loadingBar?.finish();
+    setTimeout(() => {
+      if (!import.meta.env.SSR) {
+        console.info("remove loading");
+        globalThis.document.querySelector("#app-loading")?.remove();
+      }
+    }, 100);
   });
 }

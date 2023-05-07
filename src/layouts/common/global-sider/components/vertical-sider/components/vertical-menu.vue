@@ -1,6 +1,12 @@
 <template>
   <n-scrollbar class="flex-1-hidden">
+    <div v-if="app.inSSR" class="n-menu n-menu--vertical v-n-menu">
+      <div v-for="item in menus" class="n-menu-item">
+        <a :href="item.routePath">{{ item.label }}</a>
+      </div>
+    </div>
     <n-menu
+      v-else
       :value="activeKey"
       :collapsed="app.siderCollapse"
       :collapsed-width="theme.sider.collapsedWidth"
@@ -31,7 +37,7 @@ const theme = useThemeStore();
 const routeStore = useRouteStore();
 const { routerPush } = useRouterPush();
 
-const menus = computed(() => routeStore.menus as App.GlobalMenuOption[]);
+const menus = computed(() => (<any>routeStore.menus) as App.GlobalMenuOption[]);
 const activeKey = computed(() => (route.meta?.activeMenu ? route.meta.activeMenu : route.name) as string);
 const expandedKeys = ref<string[]>([]);
 
@@ -53,4 +59,12 @@ watch(
 );
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.v-n-menu {
+  text-align: center;
+  .n-menu-item {
+    padding: 5px;
+    margin: 5px;
+  }
+}
+</style>

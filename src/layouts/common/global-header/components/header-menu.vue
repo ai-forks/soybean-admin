@@ -28,7 +28,7 @@ const routeStore = useRouteStore();
 const theme = useThemeStore();
 const { routerPush } = useRouterPush();
 
-const menus = computed(() => routeStore.menus as App.GlobalMenuOption[]);
+const menus = computed(() => (<any>routeStore.menus) as App.GlobalMenuOption[]);
 const activeKey = computed(() => (route.meta?.activeMenu ? route.meta.activeMenu : route.name) as string);
 
 function handleUpdateMenu(_key: string, item: MenuOption) {

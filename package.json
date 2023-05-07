@@ -1,19 +1,20 @@
 {
   "name": "soybean-admin",
   "version": "0.9.9",
+  "type": "commonjs",
   "description": "A fresh and elegant admin template, based on Vue3、Vite3、TypeScript、NaiveUI and UnoCSS. 一个基于Vue3、Vite3、TypeScript、NaiveUI and UnoCSS的清新优雅的中后台模版。",
   "author": {
     "name": "Soybean",
     "email": "honghuangdc@gmail.com",
-    "url": "https://github.com/honghuangdc"
+    "url": "https://github.com/ai-forks/soybean-admin"
   },
   "license": "MIT",
-  "homepage": "https://github.com/honghuangdc/soybean-admin",
+  "homepage": "https://github.com/ai-forks/soybean-admin",
   "repository": {
-    "url": "https://github.com/honghuangdc/soybean-admin.git"
+    "url": "https://github.com/ai-forks/soybean-admin.git"
   },
   "bugs": {
-    "url": "https://github.com/honghuangdc/soybean-admin/issues"
+    "url": "https://github.com/ai-forks/soybean-admin/issues"
   },
   "keywords": [
     "Vue",
@@ -35,27 +36,29 @@
     "UnoCSS"
   ],
   "scripts": {
+    "start": "cross-env VITE_SERVICE_ENV=prod VITE_SSR=Y NODE_ENV=production node server.js",
+    "ssr": "cross-env VITE_SSR=Y vite",
     "dev": "cross-env VITE_SERVICE_ENV=dev vite",
+    "dev1": "cross-env VITE_SERVICE_ENV=prod vite",
     "dev:test": "cross-env VITE_SERVICE_ENV=test vite",
     "dev:prod": "cross-env VITE_SERVICE_ENV=prod vite",
-    "build": "npm run typecheck && cross-env VITE_SERVICE_ENV=prod vite build",
+    "build": "npm run typecheck && cross-env VITE_SERVICE_ENV=prod VITE_SSR=Y vite build",
     "build:dev": "npm run typecheck && cross-env VITE_SERVICE_ENV=dev vite build",
     "build:test": "npm run typecheck && cross-env VITE_SERVICE_ENV=test vite build",
     "build:vercel": "cross-env VITE_HASH_ROUTE=Y VITE_VERCEL=Y vite build",
-    "preview": "vite preview",
+    "preview": "cross-env VITE_SERVICE_ENV=prod vite preview",
     "typecheck": "vue-tsc --noEmit --skipLibCheck",
     "lint": "eslint . --fix --ext .js,.jsx,.mjs,.json,.ts,.tsx,.vue",
     "formatx": "soy prettier-format",
     "format": "run-s format:*",
-    "format:js": " prettier --write   \"src/**/*.(ts|js|vue|css|less|scss)\"  ",
+    "format:js": " prettier --write \"src/**/*.(ts|js|vue|css|less|scss)\"  ",
     "commit": "soy git-commit",
     "cleanup": "soy cleanup",
     "update-pkg": "soy update-pkg",
     "tsx": "tsx",
     "logo": "tsx ./scripts/logo.ts",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "release": "standard-version",
-    "prepare": "soy init-git-hooks"
+    "release": "standard-version"
   },
   "dependencies": {
     "@antv/data-set": "^0.11.8",
@@ -66,19 +69,22 @@
     "axios": "0.27.2",
     "clipboard": "^2.0.11",
     "colord": "^2.9.3",
+    "cross-env": "^7.0.3",
     "crypto-js": "^4.1.1",
     "dayjs": "^1.11.7",
     "echarts": "^5.4.2",
+    "express": "^4.18.2",
     "form-data": "^4.0.0",
     "lodash-es": "^4.17.21",
-    "naive-ui": "2.34.3",
+    "naive-ui": "^2.34.3",
     "pinia": "^2.0.35",
     "print-js": "^1.6.0",
     "qs": "^6.11.1",
     "swiper": "^9.2.4",
     "ua-parser-js": "^1.0.35",
     "vditor": "^3.9.2",
-    "vue": "3.2.47",
+    "vite-plugin-ssr": "^0.4.123",
+    "vue": "^3.2.47",
     "vue-i18n": "^9.2.2",
     "vue-router": "^4.1.6",
     "vuedraggable": "^4.1.0",
@@ -86,6 +92,7 @@
     "xgplayer": "^3.0.1"
   },
   "devDependencies": {
+    "@ai-lion/vite-plugin-vue-page-route": "^1.0.3",
     "@amap/amap-jsapi-types": "^0.0.13",
     "@iconify/json": "^2.2.55",
     "@iconify/vue": "^4.1.1",
@@ -99,11 +106,10 @@
     "@unocss/preset-uno": "^0.51.8",
     "@unocss/transformer-directives": "^0.51.8",
     "@unocss/vite": "^0.51.8",
-    "@vitejs/plugin-vue": "^4.2.0",
+    "@vitejs/plugin-vue": "^4.2.1",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
     "conventional-changelog": "^3.1.25",
     "core-js": "^3.30.1",
-    "cross-env": "^7.0.3",
     "eslint": "^8.39.0",
     "eslint-config-soybeanjs": "^0.3.3",
     "lint-staged": "12.5.0",
@@ -118,11 +124,12 @@
     "unplugin-icons": "^0.16.1",
     "unplugin-vue-components": "0.24.1",
     "unplugin-vue-define-options": "^1.3.3",
-    "vite": "^4.3.2",
+    "vite": "^4.3.5",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-mock": "2.9.8",
     "vite-plugin-progress": "^0.0.7",
     "vite-plugin-pwa": "^0.14.7",
+    "vite-plugin-static-copy": "^0.14.0",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-tsc": "^1.4.4"
   },
@@ -131,11 +138,12 @@
       "mockjs@1.1.0": "patches/mockjs@1.1.0.patch"
     }
   },
-  "simple-git-hooks": {
-    "commit-msg": "pnpm soy git-commit-verify",
-    "pre-commit": "pnpm typecheck && pnpm lint-staged"
-  },
   "lint-staged": {
     "*.{js,jsx,mjs,json,ts,tsx,vue}": "eslint . --fix"
+  },
+  "imports": {
+    "~/*": "./*",
+    "@/*": "./src/*",
+    "vue-i18n": "vue-i18n/dist/vue-i18n.cjs.js"
   }
 }

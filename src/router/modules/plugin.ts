@@ -132,5 +132,5 @@ const plugin: AuthRoute.Route = {
     order: 4,
   },
 };
-
-export default plugin;
+const exports = import.meta.env.SSR ? {} : plugin;
+export default exports;

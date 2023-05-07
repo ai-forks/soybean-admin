@@ -4,8 +4,9 @@ import messages from "./lang";
 import type { LocaleKey } from "./lang";
 import Langs, { langList } from "./lang";
 
+const ls = globalThis.localStorage;
 function getLang() {
-  let lang = localStorage.getItem("lang") || navigator.language;
+  let lang = ls?.getItem("lang") || globalThis.navigator?.language || "en";
   if (!Langs[lang]) {
     for (let key of lang.split("-")) {
       if (Langs[key]) {

@@ -20,7 +20,7 @@
       <n-tab-pane v-for="(item, index) in tabData" :key="item.key" :name="index">
         <template #tab>
           <div class="flex-x-center items-center" :class="[isMobile ? 'w-92px' : 'w-120px']">
-            <span class="mr-5px">{{ item.name }}</span>
+            <span class="mr-5px">{{ item.name }} {{ item.list.length }}</span>
             <n-badge
               v-bind="item.badgeProps"
               :value="item.list.filter((message) => !message.isRead).length"
@@ -29,13 +29,15 @@
             />
           </div>
         </template>
+
+        <message-list v-if="item.list.length > 0" :list="item.list" @read="handleRead" />
         <loading-empty-wrapper
+          v-else
           class="h-360px"
           :loading="loading"
           :empty="item.list.length === 0"
           placeholder-class="bg-$n-color transition-background-color duration-300 ease-in-out"
         >
-          <message-list :list="item.list" @read="handleRead" />
         </loading-empty-wrapper>
       </n-tab-pane>
     </n-tabs>

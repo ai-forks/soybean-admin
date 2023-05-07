@@ -16,7 +16,13 @@
         </div>
       </header>
       <n-scrollbar class="flex-1-hidden">
+        <div v-if="app.inSSR" class="n-menu n-menu--vertical">
+          <div v-for="item in menus" class="n-menu-item">
+            <a :href="item.routePath">{{ item.label }}</a>
+          </div>
+        </div>
         <n-menu
+          v-else
           :value="activeKey"
           :options="menus"
           :expanded-keys="expandedKeys"

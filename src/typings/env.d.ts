@@ -63,6 +63,8 @@ interface ImportMetaEnv {
   readonly VITE_HASH_ROUTE?: "Y" | "N";
   /** 是否是部署的vercel */
   readonly VITE_VERCEL?: "Y" | "N";
+  /** 是否启用ssr服务端渲染 */
+  readonly VITE_SSR?: "Y" | "N";
 }
 
 interface ImportMeta {

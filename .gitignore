@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 .DS_Store
 dist
+publish
 dist-ssr
 dist.zip
 coverage

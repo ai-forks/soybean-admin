@@ -1,12 +1,21 @@
 import { decrypto, encrypto } from "../crypto";
-
+const storage = import.meta.env.SSR
+  ? {
+      setItem(key: string, value: string) {},
+      getItem(key: string) {
+        return undefined;
+      },
+      clear() {},
+      removeItem() {},
+    }
+  : globalThis.sessionStorage;
 function createSessionStorage<T extends StorageInterface.Session = StorageInterface.Session>() {
   function set<K extends keyof T>(key: K, value: T[K]) {
     const json = encrypto(value);
-    sessionStorage.setItem(key as string, json);
+    storage.setItem(key as string, json);
   }
   function get<K extends keyof T>(key: K) {
-    const json = sessionStorage.getItem(key as string);
+    const json = storage.getItem(key as string);
     let data: T[K] | null = null;
     if (json) {
       try {
@@ -18,10 +27,10 @@ function createSessionStorage<T extends StorageInterface.Session = StorageInterf
     return data;
   }
   function remove(key: keyof T) {
-    window.sessionStorage.removeItem(key as string);
+    storage.removeItem(key as string);
   }
   function clear() {
-    window.sessionStorage.clear();
+    storage.clear();
   }
 
   return {
@@ -33,3 +42,4 @@ function createSessionStorage<T extends StorageInterface.Session = StorageInterf
 }
 
 export const sessionStg = createSessionStorage();
+globalThis.sessionStg = sessionStg;
