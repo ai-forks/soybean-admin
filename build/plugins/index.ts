@@ -63,7 +63,7 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | Plugin
       }),
     );
   }
- /*  plugins.push(
+  plugins.push(
     viteStaticCopy({
       targets: [
         {
@@ -92,6 +92,6 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | Plugin
         },
       ],
     }),
-  ); */
+  );
   return plugins;
 }

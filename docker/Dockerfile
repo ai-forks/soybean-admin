@@ -32,12 +32,23 @@ RUN source /etc/profile
 
 # 复制 website
 WORKDIR /app
-COPY --from=WEBSITE_BUILDER  /app ./
+COPY --from=WEBSITE_BUILDER  /app/dist ./dist
+COPY --from=WEBSITE_BUILDER  /app/src ./src
+COPY --from=WEBSITE_BUILDER  /app/build ./build
+COPY --from=WEBSITE_BUILDER  /app/dist/package.json ./
+COPY --from=WEBSITE_BUILDER  /app/server.js ./
+COPY --from=WEBSITE_BUILDER  /app/vite.config.ts ./
+COPY --from=WEBSITE_BUILDER  /app/tsconfig.json ./
+COPY --from=WEBSITE_BUILDER  /app/uno.config.js ./
+COPY --from=WEBSITE_BUILDER  /app/.env ./
+COPY --from=WEBSITE_BUILDER  /app/.env.production ./
+COPY --from=WEBSITE_BUILDER  /app/.env-config.ts ./
+RUN rm -rf ./dist/package.json
 
 ENV NODE_ENV production
 #ENV VAN_BLOG_ALLOW_DOMAINS "pic.mereith.com"
 RUN pwd && ls
-#RUN yarn install
+RUN yarn install
 #COPY docker/bootstrap.sh /root/bootstrap.sh
 
 ENV PORT 3000 
