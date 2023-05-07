@@ -32,11 +32,13 @@ RUN source /etc/profile
 
 # 复制 website
 WORKDIR /app
-COPY --from=WEBSITE_BUILDER  /app/dist/ ./
+COPY --from=WEBSITE_BUILDER  /app/dist ./
+COPY --from=WEBSITE_BUILDER  /app/node_modules ./node_modules
+
 ENV NODE_ENV production
 #ENV VAN_BLOG_ALLOW_DOMAINS "pic.mereith.com"
 RUN pwd && ls
-RUN yarn install
+#RUN yarn install
 #COPY docker/bootstrap.sh /root/bootstrap.sh
 
 ENV PORT 3000 
