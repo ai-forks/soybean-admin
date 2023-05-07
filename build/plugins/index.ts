@@ -26,7 +26,7 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | Plugin
     vueJsx(),
     ...unplugin(viteEnv),
     unocss(),
-    progress(),
+    //progress(),
     pageRoute({
       //
       pageDir: "src/views", // 默认
