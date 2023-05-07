@@ -36,7 +36,6 @@ const options: DropdownOption[] = [
 ];
 
 type DropdownKey = "user-center" | "logout";
-
 function handleDropdown(optionKey: string) {
   const key = optionKey as DropdownKey;
   if (key === "logout") {

@@ -13,6 +13,7 @@
         <icon-select v-model:value="selectValue" :icons="icons" />
       </div>
       <template #footer>
+        <web-site-link label="iconify-mdi地址：" link="https://icones.js.org/collection/mdi" class="mt-10px" />
         <web-site-link label="iconify地址：" link="https://icones.js.org/" class="mt-10px" />
       </template>
     </n-card>

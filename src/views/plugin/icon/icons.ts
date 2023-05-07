@@ -1,4 +1,8 @@
+/** https://icones.js.org/collection/mdi */
 export const icons = [
+  "mdi:youtube-tv",
+  "mdi:video-input-svideo",
+  "mdi:login",
   "mdi:emoticon",
   "mdi:ab-testing",
   "ph:alarm",

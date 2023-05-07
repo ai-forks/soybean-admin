@@ -18,6 +18,7 @@ export function sortRoutes(routes: AuthRoute.Route[]) {
 export function handleModuleRoutes(modules: AuthRoute.RouteModule) {
   const routes: AuthRoute.Route[] = [];
   const ssr = import.meta.env.SSR;
+  const dev = import.meta.env.DEV;
   Object.keys(modules).forEach((key) => {
     const item = modules[key].default;
     if (item) {

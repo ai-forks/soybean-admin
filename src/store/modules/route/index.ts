@@ -94,8 +94,8 @@ export const useRouteStore = defineStore("route-store", {
      * @param routes - 权限路由
      */
     handleAuthRoute(routes: AuthRoute.Route[]) {
-      let useRoutes = isLogin() ? routes : filterAuthRouteNoAuth(routes);
-      (this.menus as App.GlobalMenuOption[]) = transformAuthRouteToMenu(useRoutes);
+      //let useRoutes = isLogin() ? routes : filterAuthRouteNoAuth(routes);
+      (this.menus as App.GlobalMenuOption[]) = transformAuthRouteToMenu(routes);
       locale(this.menus); //本地化
       this.searchMenus = transformAuthRouteToSearchMenus(routes);
 

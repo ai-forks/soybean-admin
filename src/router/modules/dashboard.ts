@@ -28,6 +28,7 @@ const dashboard: AuthRoute.Route = {
     title: "仪表盘",
     icon: "mdi:monitor-dashboard",
     order: 1,
+    requiresAuth: true,
   },
 };
 

@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineComponent, onMounted, getCurrentInstance } from "vue";
+import { ref, defineComponent, onMounted } from "vue";
 import { useAppStore, useThemeStore } from "@/store";
 import { AdminLayout } from "@soybeanjs/vue-materials";
 import { useBasicLayout } from "@/composables";

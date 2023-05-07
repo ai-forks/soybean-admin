@@ -74,6 +74,9 @@ export default defineConfig((configEnv) => {
       //external: ["naive-ui"],
       //format: "cjs"
     },
+    legacy: {
+      //buildSsrCjsExternalHeuristics: true
+    },
     build: {
       //target: "modules",
       outDir: "dist",

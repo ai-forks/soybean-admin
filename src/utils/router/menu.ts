@@ -1,17 +1,30 @@
 import { useIconRender } from "@/composables";
-
+import { isLogin } from "./helpers";
 /**
  * 将权限路由转换成菜单
  * @param routes - 路由
  */
 export function transformAuthRouteToMenu(routes: AuthRoute.Route[]): App.GlobalMenuOption[] {
   const globalMenu: App.GlobalMenuOption[] = [];
+  //const ssr = import.meta.env.SSR;
+  const dev = import.meta.env.DEV;
+
   routes.forEach((route) => {
+    //没有登录
+    if (!isLogin()) {
+      if (route.meta?.requiresAuth == true) return;
+    }
+
     const { name, path, meta } = route;
     const routeName = name as string;
     let menuChildren: App.GlobalMenuOption[] | undefined;
     if (route.children && route.children.length > 0) {
       menuChildren = transformAuthRouteToMenu(route.children);
+    }
+    if (!menuChildren || menuChildren.length < 1) {//不存在子菜单 
+      //不是独立页面类型
+      if (["basic"].includes(route.component)) return; 
+      menuChildren = undefined;
     }
     const menuItem: App.GlobalMenuOption = addPartialProps({
       menu: {

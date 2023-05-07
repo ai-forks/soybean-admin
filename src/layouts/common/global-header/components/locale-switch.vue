@@ -9,10 +9,9 @@
 <script lang="ts" setup>
 import type { DropdownOption } from "naive-ui";
 import { useThemeStore, useAppStore } from "@/store";
-import { useIconRender } from "@/composables";
-import { defineComponent, getCurrentInstance } from "vue";
+//import { useIconRender } from "@/composables";
+import { defineComponent } from "vue";
 
-const { ctx } = <any>getCurrentInstance();
 defineComponent({
   name: "LocaleSwitch",
   setup: (props, ctx) => {
@@ -21,7 +20,7 @@ defineComponent({
 });
 const theme = useThemeStore();
 const app = useAppStore();
-const { iconRender } = useIconRender();
+//const { iconRender } = useIconRender();
 
 type DropdownKey = "user-center" | "logout";
 

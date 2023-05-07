@@ -15,6 +15,7 @@
       <system-message />
       <setting-button v-if="showButton" />
       <user-avatar v-if="auth.isLogin" />
+      <user-login v-if="!auth.isLogin"/>
     </div>
   </dark-mode-container>
 </template>
@@ -35,6 +36,7 @@ import {
   ThemeMode,
   UserAvatar,
   LocaleSwitch,
+  UserLogin,
 } from "./components";
 
 defineOptions({ name: "GlobalHeader" });

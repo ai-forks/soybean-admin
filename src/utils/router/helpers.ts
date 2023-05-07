@@ -1,3 +1,9 @@
+import { localStg } from "../storage";
+
+export function isLogin() {
+  return Boolean(localStg.get("token"));
+}
+
 /**
  * 获取所有固定路由的名称集合
  * @param routes - 固定路由

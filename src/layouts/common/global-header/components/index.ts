@@ -8,6 +8,7 @@ import UserAvatar from "./user-avatar.vue";
 import SystemMessage from "./system-message.vue";
 import SettingButton from "./setting-button.vue";
 import LocaleSwitch from "./locale-switch.vue";
+import UserLogin from "./user-login.vue";
 
 export {
   MenuCollapse,
@@ -20,4 +21,5 @@ export {
   SystemMessage,
   SettingButton,
   LocaleSwitch,
+  UserLogin
 };
