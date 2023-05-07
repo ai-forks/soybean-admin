@@ -70,8 +70,8 @@ jobs:
         with:
           node-version: 16
       - run: npm install --global yarn
-      - name: generateReleaseNote
-        run: yarn run release-note
+      #- name: generateReleaseNote
+      #  run: yarn run release-note
       #- name: Release
       #  uses: softprops/action-gh-release@v1
       #  with:

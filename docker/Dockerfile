@@ -35,10 +35,10 @@ WORKDIR /app
 COPY --from=WEBSITE_BUILDER  /app/dist/ ./
 ENV NODE_ENV production
 #ENV VAN_BLOG_ALLOW_DOMAINS "pic.mereith.com"
-RUN ls
+RUN pwd && ls
 RUN yarn install
 #COPY docker/bootstrap.sh /root/bootstrap.sh
-RUN pwd && ls
+
 ENV PORT 3000 
 # 增加版本
 VOLUME /app
