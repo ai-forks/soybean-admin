@@ -60,8 +60,8 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            "docker.io/mixnet/vanblog:${{ steps.appinfo.outputs.version }}"
-            "docker.io/mixnet/vanblog:latest"
+            "docker.io/mixnet/${{ steps.appinfo.outputs.name }}:${{ steps.appinfo.outputs.version }}"
+          #  "docker.io/mixnet/soybean:latest"
       - name: 设置 Node.js
         uses: actions/setup-node@v3
         with:
