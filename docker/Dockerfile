@@ -41,7 +41,7 @@ RUN pwd && ls
 #COPY docker/bootstrap.sh /root/bootstrap.sh
 
 ENV PORT 3000 
-# 增加版本
+# 增加版本 
 VOLUME /app
 VOLUME /var/log
 
