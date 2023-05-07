@@ -35,7 +35,7 @@ WORKDIR /app
 COPY --from=WEBSITE_BUILDER  /app/dist/ ./
 ENV NODE_ENV production
 #ENV VAN_BLOG_ALLOW_DOMAINS "pic.mereith.com"
-yarn --force
+yarn install
 #COPY docker/bootstrap.sh /root/bootstrap.sh
 RUN pwd && ls
 ENV PORT 3000 
