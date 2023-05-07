@@ -6,7 +6,6 @@
 const express = require("express");
 const path = require("path");
 const { renderPage } = require("vite-plugin-ssr/server");
-const { createServer: createSSRServer } = require("vite");
 const isProduction = true; // = process.env.NODE_ENV === "production";
 const root = path.resolve();
 
@@ -18,6 +17,7 @@ async function startServer() {
   if (isProduction) {
     app.use(express.static(`${root}/dist/client`));
   } else {
+    const { createServer: createSSRServer } = require("vite");
     let vite = await createSSRServer({
       root,
       server: { middlewareMode: true },
