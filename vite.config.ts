@@ -4,8 +4,8 @@ import { getServiceEnvConfig } from "./.env-config";
 import path from "path";
 
 export default defineConfig((configEnv) => {
-  const viteEnv: any = loadEnv(configEnv.mode, process.cwd()); // as unknown as ImportMetaEnv;
-
+  const viteEnv: ImportMetaEnv = <any>loadEnv(configEnv.mode, process.cwd()); // as unknown as ImportMetaEnv;
+  console.info("vite mode", viteEnv.MODE, viteEnv.PROD);
   const rootPath = path.resolve(__dirname);
   const srcPath = path.join(rootPath, "src");
   //console.info("vite env", viteEnv);
@@ -80,7 +80,7 @@ export default defineConfig((configEnv) => {
       //publicDir: "public",
       minify: false,
       cssMinify: true,
-      //manifest: true,
+      manifest: true,
       ssrManifest: true,
       //ssr: true,
       reportCompressedSize: false,
