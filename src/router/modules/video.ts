@@ -9,7 +9,7 @@ const video: AuthRoute.Route[] = [
       keepAlive: true,
       singleLayout: "basic",
       icon: "mdi:video-2d",
-      order: 10,
+      order: 1,
     },
   },
   {
@@ -22,7 +22,7 @@ const video: AuthRoute.Route[] = [
       keepAlive: true,
       singleLayout: "basic",
       icon: "mdi:video-input-svideo",
-      order: 10,
+      order: 2,
     },
   },
   {
@@ -35,7 +35,7 @@ const video: AuthRoute.Route[] = [
       keepAlive: true,
       singleLayout: "basic",
       icon: "mdi:youtube-tv",
-      order: 10,
+      order: 3,
     },
   },
   {
@@ -48,7 +48,7 @@ const video: AuthRoute.Route[] = [
       keepAlive: true,
       singleLayout: "basic",
       icon: "mdi:atv",
-      order: 10,
+      order: 4,
     },
   },
   {
@@ -61,7 +61,7 @@ const video: AuthRoute.Route[] = [
       keepAlive: true,
       singleLayout: "basic",
       icon: "mdi:eye",
-      order: 10,
+      order: 5,
     },
   },
   {
@@ -74,7 +74,7 @@ const video: AuthRoute.Route[] = [
       keepAlive: true,
       singleLayout: "basic",
       icon: "mdi:basketball",
-      order: 10,
+      order: 6,
     },
   },
   {
@@ -87,7 +87,7 @@ const video: AuthRoute.Route[] = [
       keepAlive: true,
       singleLayout: "basic",
       icon: "mdi:video-vintage",
-      order: 10,
+      order: 7,
     },
   },
   {
@@ -100,7 +100,7 @@ const video: AuthRoute.Route[] = [
       keepAlive: true,
       singleLayout: "basic",
       icon: "mdi:video-vintage",
-      order: 10,
+      order: 8,
     },
   },
 ];

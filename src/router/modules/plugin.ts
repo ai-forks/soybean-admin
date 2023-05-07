@@ -32,6 +32,7 @@ const plugin: AuthRoute.Route = {
       meta: {
         title: "图表",
         icon: "mdi:chart-areaspline",
+        requiresAuth: true,
       },
     },
     {
@@ -83,6 +84,7 @@ const plugin: AuthRoute.Route = {
       meta: {
         title: "编辑器",
         icon: "icon-park-outline:editor",
+        requiresAuth: true,
       },
     },
     {
@@ -130,6 +132,7 @@ const plugin: AuthRoute.Route = {
     title: "插件示例",
     icon: "clarity:plugin-line",
     order: 4,
+    requiresAuth: true,
   },
 };
 const exports = import.meta.env.SSR ? {} : plugin;

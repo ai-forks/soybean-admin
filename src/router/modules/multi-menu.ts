@@ -50,6 +50,7 @@ const multiMenu: AuthRoute.Route = {
     title: "多级菜单",
     icon: "carbon:menu",
     order: 8,
+    requiresAuth: true,
   },
 };
 
