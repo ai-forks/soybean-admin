@@ -19,7 +19,7 @@
           class="inline-block align-text-bottom text-16px"
         />
       </template>
-      {{ item.meta.title }}
+      {{ $t(item.meta.title) }}
     </AdminTab>
   </div>
   <context-menu

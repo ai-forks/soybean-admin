@@ -90,7 +90,6 @@ export const useTabStore = defineStore("tab-store", {
      */
     addTab(route: RouteLocationNormalizedLoaded) {
       const tab = getTabRouteByVueRoute(route);
-
       if (isInTabRoutes(this.tabs, tab.fullPath)) {
         return;
       }

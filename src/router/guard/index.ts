@@ -19,7 +19,6 @@ export function createRouterGuard(router: Router) {
     // 结束 loadingBar
     window.$loadingBar?.finish();
     if (!import.meta.env.SSR) {
-      console.info("remove loading");
       globalThis.document.querySelector("#app-loading")?.remove();
     }
   });

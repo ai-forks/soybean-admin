@@ -10,7 +10,6 @@ import { useThemeStore } from "@/store";
 defineOptions({ name: "ThemeMode" });
 
 const theme = useThemeStore();
-console.info("darkMode=", theme.darkMode);
 </script>
 
 <style scoped></style>
