@@ -32,8 +32,7 @@ RUN source /etc/profile
 
 # 复制 website
 WORKDIR /app
-COPY --from=WEBSITE_BUILDER  /app/dist ./
-COPY --from=WEBSITE_BUILDER  /app/node_modules ./node_modules
+COPY --from=WEBSITE_BUILDER  /app ./
 
 ENV NODE_ENV production
 #ENV VAN_BLOG_ALLOW_DOMAINS "pic.mereith.com"

@@ -26,7 +26,7 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | Plugin
     vueJsx(),
     ...unplugin(viteEnv),
     unocss(),
-    //progress(),
+    progress(),
     pageRoute({
       //
       pageDir: "src/views", // 默认
@@ -86,7 +86,7 @@ export function setupVitePlugins(viteEnv: ImportMetaEnv): (PluginOption | Plugin
           src: "server.js",
           dest: "../",
           transform: (content, file) => {
-            content = content.replace("dist/client", "client");
+            //content = content.replace("dist/client", "client");
             return content;
           },
         },
