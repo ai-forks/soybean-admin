@@ -9,11 +9,11 @@ USER root
 #RUN apk add --update python3 make g++ && rm -rf /var/cache/apk/*
 COPY ./ ./
 RUN source /etc/profile
-RUN npm config set registry https://registry.npm.taobao.org/
-RUN yarn config set registry https://registry.npm.taobao.org/
-RUN yarn install
+#RUN npm config set registry https://registry.npm.taobao.org/
+#RUN yarn config set registry https://registry.npm.taobao.org/
+RUN pnpm install
 # RUN sed -i 's/\/assets/\/admin\/assets/g' dist/admin/index.html
-RUN yarn build
+RUN pnpm build
 
 
 
