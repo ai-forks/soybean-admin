@@ -38,6 +38,12 @@ export const useThemeStore = defineStore("theme-store", {
       localStg.set("themeSettings", this.$state);
       //}
     },
+    getSideWidth(){
+      //"horizontal"
+      //theme.sider.width
+      if(this.layout.mode == "horizontal") return 90;
+      return this.sider.width;
+    },
     /** 设置暗黑模式 */
     setDarkMode(darkMode: boolean) {
       this.darkMode = darkMode;
@@ -64,6 +70,7 @@ export const useThemeStore = defineStore("theme-store", {
     },
     /** 设置布局模式 */
     setLayoutMode(mode: UnionKey.ThemeLayoutMode) {
+      console.info("设置布局模式[" + mode + "]");
       this.layout.mode = mode;
     },
     /** 设置滚动模式 */

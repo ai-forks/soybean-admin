@@ -1,27 +1,16 @@
 <template>
-  <admin-layout
-    :mode="mode"
-    :scroll-mode="theme.scrollMode"
-    :scroll-el-id="app.scrollElId"
-    :full-content="app.contentFull"
-    :fixed-top="theme.fixedHeaderAndTab"
-    :header-height="theme.header.height"
-    :tab-visible="theme.tab.visible"
-    :tab-height="theme.tab.height"
-    :content-class="app.disableMainXScroll ? 'overflow-x-hidden' : ''"
-    :sider-visible="siderVisible"
-    :sider-collapse="app.siderCollapse"
-    :sider-width="siderWidth"
-    :sider-collapsed-width="siderCollapsedWidth"
-    :footer-visible="theme.footer.visible"
-    :fixed-footer="theme.footer.fixed"
-    :right-footer="theme.footer.right"
-  >
+  <admin-layout :mode="mode" :scroll-mode="theme.scrollMode" :scroll-el-id="app.scrollElId"
+    :full-content="app.contentFull" :fixed-top="theme.fixedHeaderAndTab" :header-height="theme.header.height"
+    :tab-visible="theme.tab.visible" :tab-height="theme.tab.height"
+    :content-class="app.disableMainXScroll ? 'overflow-x-hidden' : ''" :sider-visible="siderVisible"
+    :sider-collapse="app.siderCollapse" :sider-width="siderWidth" :sider-collapsed-width="siderCollapsedWidth"
+    :footer-visible="theme.footer.visible" :fixed-footer="theme.footer.fixed" :right-footer="theme.footer.right"
+    :tab-class="isMobile ? 'tab-hide' : ''">
     <template #header>
       <global-header v-bind="headerProps" />
     </template>
     <template #tab>
-      <global-tab v-if="!app.inSSR" />
+      <global-tab v-if="!app.inSSR && !isMobile" />
     </template>
     <template #sider>
       <global-sider />
@@ -54,7 +43,7 @@ onMounted(() => {
 
 const app = useAppStore();
 const theme = useThemeStore();
-const { mode, headerProps, siderVisible, siderWidth, siderCollapsedWidth } = useBasicLayout();
+const { mode, headerProps, siderVisible, siderWidth, siderCollapsedWidth, isMobile } = useBasicLayout();
 </script>
 
 <style lang="scss">
@@ -64,5 +53,10 @@ const { mode, headerProps, siderVisible, siderWidth, siderCollapsedWidth } = use
 
 .dark #__SCROLL_EL_ID__ {
   @include scrollbar(8px, #555);
+}
+
+.tab-hide,
+.tab-hide+._layout-tab-placement_nhzen_18 {
+  display: none;
 }
 </style>

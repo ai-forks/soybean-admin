@@ -14,6 +14,10 @@ async function render(pageContext) {
   //const appLoadingHtml = await renderToString(appLoading); //${dangerouslySkipEscape(appHtml)}
   return escapeInject`<!DOCTYPE html>
     <html>
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=false">
+      </head>
       <body>
         <div id="app-loading" style="position: fixed;width: 100%;height: 100%; left: 0;top: 0; z-index: 9999;background:#fff;">
           <div style="display: flex;flex-wrap: wrap; justify-content: center;align-items: center; width:100%; height: 100%; text-align: center;">
