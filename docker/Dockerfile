@@ -40,7 +40,7 @@ ENV API_SERVER /
 RUN pwd && ls
 #RUN yarn install --production
 COPY docker/bootstrap.sh /root/bootstrap.sh
-
+RUN chmod a+x /root/bootstrap.sh
 ENV PORT 3000 
 # 增加版本 
 VOLUME /app
