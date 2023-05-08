@@ -48,8 +48,7 @@ async function startServer() {
   console.log(`Server running at http://localhost:${port}`);
 }
 function setCustomCacheControl(res, path) {
-  let info = new URL(path);
-  if (/\.(htm|html)$/i.test(info.pathname)) {
+  if (/\.(htm|html)$/i.test(path)) {
     res.setHeader("Cache-Control", "public, max-age=0");
   }
 }
