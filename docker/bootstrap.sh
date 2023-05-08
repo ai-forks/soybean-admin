@@ -10,8 +10,8 @@ pm2 flush
 pm2 start /app/server.js --name server \
   --max-memory-restart 300M \
   --cron-restart="0 3 * * *"\ --  
-  VITE_SERVICE_ENV=prod VITE_SSR=Y NODE_ENV=production 
-  API_SERVER "/"
+  VITE_SERVICE_ENV=prod VITE_SSR=Y NODE_ENV=production \
+  API_SERVER "/" \
   --port 80
 
 pm2 log
