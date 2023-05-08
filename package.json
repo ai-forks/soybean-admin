@@ -36,8 +36,8 @@
     "UnoCSS"
   ],
   "scripts": {
-    "start": "cross-env VITE_SERVICE_ENV=prod VITE_SSR=Y NODE_ENV=production node server.js",
-    "ssr": "cross-env VITE_SSR=Y vite",
+    "start": "cross-env VITE_SERVICE_ENV=prod NODE_ENV=production API_SERVER=https://www.s.com/ab node server.js",
+    "ssr": "cross-env VITE_SERVICE_ENV=dev VITE_SSR=Y vite",
     "dev": "cross-env VITE_SERVICE_ENV=dev vite",
     "dev1": "cross-env VITE_SERVICE_ENV=prod vite",
     "dev:test": "cross-env VITE_SERVICE_ENV=test vite",
@@ -130,7 +130,6 @@
     "vite": "^4.3.5",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-mock": "2.9.8",
-    "vite-plugin-progress": "^0.0.7",
     "vite-plugin-pwa": "^0.14.7",
     "vite-plugin-static-copy": "^0.14.0",
     "vite-plugin-svg-icons": "^2.0.1",

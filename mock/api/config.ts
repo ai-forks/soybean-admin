@@ -10,7 +10,7 @@ const apis: MockMethod[] = [
         code: 200,
         message: "",
         data: {
-          apiServer: "",
+          apiServer: "/mock1",
         },
       };
     },

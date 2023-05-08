@@ -23,6 +23,7 @@ interface ServiceEnvConfigWithProxyPattern extends ServiceEnvConfig {
 }
 
 interface ImportMetaEnv {
+  readonly API_SERVER: string;
   /** 项目基本地址 */
   readonly VITE_BASE_URL: string;
   /** 项目名称 */

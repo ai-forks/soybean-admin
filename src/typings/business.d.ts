@@ -1,6 +1,6 @@
 declare namespace Config {
   interface Config {
-    apiServer: string;
+    apiServer?: string;
   }
 }
 /** 用户相关模块 */
