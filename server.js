@@ -15,7 +15,12 @@ async function startServer() {
   const app = express();
   console.info("===isProduction", isProduction);
   if (isProduction) {
-    app.use(express.static(`${root}/dist/client`));
+    app.use(
+      express.static(`${root}/dist/client`, {
+        maxAge: "7d",
+        setHeaders: setCustomCacheControl,
+      }),
+    );
   } else {
     const { createServer: createSSRServer } = require("vite");
     let vite = await createSSRServer({
@@ -33,12 +38,18 @@ async function startServer() {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type, Authorization");
-
-    res.setHeader("cache-control", "public, max-age=" + 7 * 24 * 60 * 60);
+    //console.info("res", req.url);
+    //res.setHeader("Cache-Control", "public, max-age=" + (7 * 24 * 60 * 60));
     res.status(statusCode).type(contentType).send(body);
   });
 
   const port = 3000;
   app.listen(port);
   console.log(`Server running at http://localhost:${port}`);
+}
+function setCustomCacheControl(res, path) {
+  let info = new URL(path);
+  if (/\.(htm|html)$/i.test(info.pathname)) {
+    res.setHeader("Cache-Control", "public, max-age=0");
+  }
 }
