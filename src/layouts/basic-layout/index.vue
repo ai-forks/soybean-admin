@@ -30,6 +30,7 @@ import { useAppStore, useThemeStore } from "@/store";
 import { AdminLayout } from "@soybeanjs/vue-materials";
 import { useBasicLayout } from "@/composables";
 import { GlobalContent, GlobalFooter, GlobalHeader, GlobalSider, GlobalTab, SettingDrawer } from "../common";
+const ssr = import.meta.env.SSR;
 const initStyle = ref({
   visibility: "hidden",
 });
@@ -44,6 +45,9 @@ onMounted(() => {
 const app = useAppStore();
 const theme = useThemeStore();
 const { mode, headerProps, siderVisible, siderWidth, siderCollapsedWidth, isMobile } = useBasicLayout();
+if (!ssr) {
+  isMobile && theme.setLayoutMode("horizontal");
+}
 </script>
 
 <style lang="scss">
