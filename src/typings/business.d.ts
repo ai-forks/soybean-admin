@@ -1,3 +1,8 @@
+declare namespace Config {
+  interface Config {
+    apiServer: string;
+  }
+}
 /** 用户相关模块 */
 declare namespace Auth {
   /**
