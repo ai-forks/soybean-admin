@@ -30,6 +30,11 @@ async function startServer() {
     const pageContext = await renderPage(pageContextInit);
     if (pageContext.httpResponse === null) return next();
     const { body, statusCode, contentType } = pageContext.httpResponse;
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST");
+    res.setHeader("Access-Control-Allow-Headers", "X-Requested-With,content-type, Authorization");
+
+    res.setHeader("cache-control", "public, max-age=" + 7 * 24 * 60 * 60);
     res.status(statusCode).type(contentType).send(body);
   });
 
