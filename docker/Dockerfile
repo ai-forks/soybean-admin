@@ -35,7 +35,7 @@ WORKDIR /app
 COPY --from=WEBSITE_BUILDER  /app/ ./
 
 ENV NODE_ENV production
-ENV API_SERVER 
+ENV API_SERVER /
 #ENV VAN_BLOG_ALLOW_DOMAINS "pic.mereith.com"
 RUN pwd && ls
 #RUN yarn install --production
